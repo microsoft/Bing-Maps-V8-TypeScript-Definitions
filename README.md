@@ -1,4 +1,5 @@
-<img src="images/BingMapsIcon.png" title="Bing Maps Logo" width="100px"/> 
+![Bing Maps Logo](images/BingMapsLogoTeal.png) 
+
 #Bing Maps V8 TypeScript Definitions
 
 These are the official TypeScript definitions for the Bing Maps V8 SDK. These can be usped to provide intellisense functionality to your IDE.
