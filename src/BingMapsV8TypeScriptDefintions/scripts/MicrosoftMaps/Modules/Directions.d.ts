@@ -464,12 +464,6 @@ declare module Microsoft.Maps.Directions {
         public getLocation(): Location;
 
         /**
-         * Gets the custom pushpin associated with this waypoint, if one has been specified.
-         * @returns The custom pushpin associated with this waypoint, if one has been specified.
-         */
-        public getPushpin(): Pushpin; //TODO
-
-        /**
          * Gets a boolean value indicating whether the waypoint is a via point.
          * @returns A boolean value indicating whether the waypoint is a via point.
          */
