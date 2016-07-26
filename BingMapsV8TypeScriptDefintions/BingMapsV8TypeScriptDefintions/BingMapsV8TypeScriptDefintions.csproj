@@ -38,16 +38,6 @@
     <TypeScriptCompile Include="scripts\MicrosoftMaps\Modules\Traffic.d.ts" />
     <TypeScriptCompile Include="scripts\MicrosoftMaps\Modules\WellKnownText.d.ts" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="images\V8EventIntellisense.gif" />
-    <Content Include="images\V8Intellisense.gif" />
-    <Content Include="images\V8LoadModuleIntellisense.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="CONTRIBUTING.md" />
-    <Content Include="LICENSE.md" />
-    <Content Include="README.md" />
-  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
   </PropertyGroup>
