@@ -14,11 +14,11 @@ Using the NuGet package will make it easy to both add the definitions to your pr
 
 **Download definitions**
 
-Simply press the download button for this repository. Unzip the downloaded file, and copy the contents of the scripts folder into your project. You can find the scripts folder at src/BingMapsV8TypeScriptDefintions/scripts. Note that you will need to do this process  again from time to time if you want to have the most recent definitions. This should only be needed if you want use newer features or if bugs in the definitions have been corrected.
+Simply press the download button for this repository. Unzip the downloaded file, and copy the contents of the scripts folder into your project. You can find the scripts folder at src/BingMapsV8TypeScriptDefintions/scripts. Note that you will need to do this process  again from time to time if you want to have the most recent definitions. This should only be needed if you want to use newer features or if bugs in the definitions have been corrected.
 
 ## Usage
 
-If using Visual Studio, you can add a reference to the core Bing MAps V8 functionality by adding the following to the top of your TypeScript file. 
+If using Visual Studio, you can add a reference to the core Bing Maps V8 functionality by adding the following to the top of your TypeScript file. 
 
 ```
 /// <reference path="scripts/MicrosoftMaps/Microsoft.Maps.d.ts" />
@@ -51,7 +51,7 @@ The following shows the intellisense for events. Notice how a list of the suppor
 
 ![Bing Maps V8 Event Intellisense](images/V8EventIntellisense.gif "Bing Maps V8 Event Intellisense")
 
-The following shows the intellisense for adding modules. A list of the supported modules appears, saving you from having to go looking * for the correct name/speeling used in Bing Maps V8.
+The following shows the intellisense for adding modules. A list of the supported modules appears, saving you from having to go looking * for the correct name/spelling used in Bing Maps V8.
 
 ![Bing Maps V8 Load Module Intellisense](images/V8LoadModuleIntellisense.gif "Bing Maps V8 Load Module Intellisense")
 
@@ -66,7 +66,7 @@ The following shows the intellisense for adding modules. A list of the supported
 ## Q & A
 
 - **Q: When will new Bing Maps features be added to these defintions.**
-  - **A:** New features will be added to the definitions when they have graduated out of the experimental branch and into the main release branch of V8. This will often be done in parallel with MSDN documntation updates.
+  - **A:** New features will be added to the definitions when they have graduated out of the experimental branch and into the main release branch of V8. This will often be done in parallel with MSDN documentation updates.
 
 ## Contributing
 
@@ -76,7 +76,7 @@ You can reach out to us anytime with questions and suggestions using our communi
 * [MSDN Forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=bingmapsajax&filter=alltypes&sort=lastpostdesc)
 * [StackOverflow](http://stackoverflow.com/questions/tagged/bing-maps)
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information, see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
 ## License
 
