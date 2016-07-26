@@ -4,7 +4,6 @@ These are the official TypeScript definitions for the Bing Maps V8 SDK.
 
 ![Bing Maps V8 Intellisense](images/V8Intellisense.gif "Bing Maps V8 Intellisense")
 
-
 ## How to get the definitions
 
 **Use the NuGet Package**
@@ -15,7 +14,7 @@ Using the NuGet package will make it easy to both add the definitions to your pr
 
 **Download definitions**
 
-Simply press the download button for this repository. Unzip the downloaded file, and copy the contents into your project. Note that you will need to do this process this again from time to time if you want to have the most recent definitions. This should only be needed if you want use newer features.
+Simply press the download button for this repository. Unzip the downloaded file, and copy the contents of the scripts folder into your project. You can find the scripts folder at src/BingMapsV8TypeScriptDefintions/scripts. Note that you will need to do this process  again from time to time if you want to have the most recent definitions. This should only be needed if you want use newer features or if bugs in the definitions have been corrected.
 
 ## Usage
 
@@ -48,27 +47,30 @@ or you can add a reference to the individual module definitions.
 
 ## Screenshots
 
-//TODO: Add more details
+The following shows the intellisense for events. Notice how a list of the supported events are displayed, thus saving you from having to go back to documentation to verify the correct event name. Also notice how the structure of the event argument is known and you can easily access its properties.
 
 ![Bing Maps V8 Event Intellisense](images/V8EventIntellisense.gif "Bing Maps V8 Event Intellisense")
 
-//TODO: Add more details
+The following shows the intellisense for adding modules. A list of the supported modules appears, saving you from having to go looking * for the correct name/speeling used in Bing Maps V8.
 
 ![Bing Maps V8 Load Module Intellisense](images/V8LoadModuleIntellisense.gif "Bing Maps V8 Load Module Intellisense")
 
 ## Additional Resources
 
-//TODO: Add more details
-
+* [Bing Maps V8 Interactive Code Samples](http://www.bing.com/api/maps/sdk/mapcontrol/isdk)
+* [Bing Maps V8 MSDN Documentation](https://msdn.microsoft.com/en-us/library/mt712542.aspx)
+* [Bing Maps Blog](http://blogs.bing.com/maps)
+* [Bing Maps forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=bingmapsajax&filter=alltypes&sort=lastpostdesc)
+* [Bing Maps for Enterpise site](https://www.microsoft.com/maps/)
 
 ## Q & A
 
 - **Q: When will new Bing Maps features be added to these defintions.**
-  - **A:** New features will added to the definitions when they have graduated out of the experimental branch and into the main release branch ov V8. This will often be done in parallel with MSDN documntation updates.
+  - **A:** New features will be added to the definitions when they have graduated out of the experimental branch and into the main release branch of V8. This will often be done in parallel with MSDN documntation updates.
 
 ## Contributing
 
-We welcome contributions. Feel free to file issues and pull requests on the repo and we'll address them as we can. Learn more about how you can help on our [Contribution Rules & Guidelines](https://github.com/Microsoft/Cognitive-Vision-Windows/blob/master/CONTRIBUTING.md). 
+We welcome contributions. Feel free to file issues and pull requests on the repo and we'll address them as we can. Learn more about how you can help on our [Contribution Rules & Guidelines](CONTRIBUTING.md). 
 
 You can reach out to us anytime with questions and suggestions using our communities below:
 * [MSDN Forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=bingmapsajax&filter=alltypes&sort=lastpostdesc)
@@ -78,4 +80,4 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 
 ## License
 
-See [License]() for full license text.
+See [License](LICENSE.md) for full license text.
