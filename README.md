@@ -2,7 +2,7 @@
 
 #Bing Maps V8 TypeScript Definitions
 
-These are the official TypeScript definitions for the Bing Maps V8 SDK. These can be used to provide intellisense functionality to your IDE.
+These are the official TypeScript definitions for the [Bing Maps V8 Web Control](https://msdn.microsoft.com/en-US/library/mt712542.aspx). These can be used to provide intellisense functionality to your IDE.
 
 ![Bing Maps V8 Intellisense](images/V8Intellisense.gif "Bing Maps V8 Intellisense")
 
