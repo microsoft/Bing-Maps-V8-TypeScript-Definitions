@@ -16,7 +16,7 @@ Using the NuGet package will make it easy to both add the definitions to your pr
 
 **Download definitions**
 
-Simply press the download button for this repository. Unzip the downloaded file, and copy the contents of the scripts folder into your project. You can find the scripts folder at src/BingMapsV8TypeScriptDefintions/scripts. Note that you will need to do this process  again from time to time if you want to have the most recent definitions. This should only be needed if you want to use newer features or if bugs in the definitions have been corrected.
+Simply press the download button for this repository. Unzip the downloaded file, and copy the the scripts folder into your project. Note that you will need to do this processagain from time to time if you want to have the most recent definitions. This should only be needed if you want to use newer features or if bugs in the definitions have been corrected.
 
 ## Usage
 
