@@ -1,4 +1,4 @@
-﻿/// <reference path="scripts/MicrosoftMaps/Microsoft.Maps.d.ts" />
+﻿/// <reference path="scripts/MicrosoftMaps/Microsoft.Maps.All.d.ts" />
 
 var map = new Microsoft.Maps.Map('#MyMap', {
     credentials: 'Your Bing Maps Key'    
@@ -45,4 +45,3 @@ Microsoft.Maps.loadModule('Microsoft.Maps.Autosuggest', {
         });
     }
 });
-

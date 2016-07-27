@@ -22,6 +22,9 @@
  * THE SOFTWARE. 
 */
 
+/// <reference path="Modules/Directions.d.ts"/>
+/// <reference path="Modules/DrawingTools.d.ts"/>
+
 /**
  *  The Bing Maps V8 developer API.
  */
