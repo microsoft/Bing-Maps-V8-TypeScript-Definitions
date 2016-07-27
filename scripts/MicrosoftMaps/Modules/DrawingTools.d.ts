@@ -26,45 +26,6 @@
 
 declare module Microsoft.Maps {
     /**
-    * The different drawing modes that the drawing manager can be set to.
-    * @requires The Microsoft.Maps.DrawingTools module.
-    */
-    export enum DrawingMode {
-        /** Edit an existing shape. Click on a shape to edit it. */
-        edit,
-
-        /** Erase and existing shape. Click on the shapes to erase them. */
-        erase,
-
-        /** Sets the drawing manager into an idle mode. */
-        none,
-
-        /** Allow the user to draw a polygon. */
-        polygon,
-
-        /** Allow the user to draw a polyline. */
-        polyline,
-
-        /** Allow the user to draw a pushpin. */
-        pushpin
-    }
-
-    /**
-    * The different types of shapes that are created or edited by the drawing tools.
-    * @requires The Microsoft.Maps.DrawingTools module.
-    */
-    export enum ShapeType {
-        /** A polygon shape type. */
-        polygon,
-
-        /** A polyline shape type. */
-        polyline,
-
-        /** A pushpin shape type. */
-        pushpin
-    }
-
-    /**
      * The DrawingManager class manages the ability to draw and edit multiple shapes on the map. Shapes managed by this class are rendered on a separate drawing layer.
      * User can use a mouse or a touch screen to draw on the map. When they are done, pressing the escape button or any button on the toolbar will exit the current drawing mode.
      * This class does not have a publicly accessible constructor and can only be accessed using the showDrawingManager of the DrawingTools class.
@@ -91,7 +52,7 @@ declare module Microsoft.Maps {
         * Gets the current drawing mode of the drawing manager.
         * @returns The current drawing mode of the drawing manager.
         */
-        getDrawingMode(): DrawingMode;
+        getDrawingMode(): DrawingTools.DrawingMode;
 
         /**
         * Gets an array of shapes that are in the layer. This can be used to iterate over the individual shapes.
@@ -125,7 +86,7 @@ declare module Microsoft.Maps {
         * Sets the drawing mode of the drawing manager.
         * @param mode The drawing mode to set the DrawingManager to.
         */
-        setDrawingMode(mode: DrawingMode): void;
+        setDrawingMode(mode: DrawingTools.DrawingMode): void;
 
         /**
         * Replaces all shapes in the layer with the new array of shapes that have been provided.
@@ -150,7 +111,7 @@ declare module Microsoft.Maps {
         * Initializes the drawing layer and instructs it to create a new shape of a given type.
         * @param shapeType The type of new shape to create.
         */
-        public create(shapeType: ShapeType): void;
+        public create(shapeType: DrawingTools.ShapeType): void;
 
         /** Disposes the instance of the DrawingTools class. */
         public dispose(): void;
@@ -165,6 +126,44 @@ declare module Microsoft.Maps {
         * Creates a drawing manager which allows multi-shape editing and displays the toolbar.
         * @param callback A callback function that is triggered after the DrawingTools have loaded. 
         */
-        public showDrawingManager(callback: (manager: DrawingManager) => void) : void;
+        public showDrawingManager(callback: (manager: DrawingManager) => void): void;
+    }
+}
+
+declare module Microsoft.Maps.DrawingTools {
+    /**
+    * The different drawing modes that the drawing manager can be set to.
+    * @requires The Microsoft.Maps.DrawingTools module.
+    */
+    export enum DrawingMode {
+        /** Edit an existing shape. Click on a shape to edit it. */
+        edit,
+
+        /** Erase and existing shape. Click on the shapes to erase them. */
+        erase,
+
+        /** Sets the drawing manager into an idle mode. */
+        none,
+
+        /** Allow the user to draw a polygon. */
+        polygon,
+
+        /** Allow the user to draw a polyline. */
+        polyline,
+
+        /** Allow the user to draw a pushpin. */
+        pushpin
+    }
+
+    /**
+    * The different types of shapes that are created or edited by the drawing tools.
+    * @requires The Microsoft.Maps.DrawingTools module.
+    */
+    export enum ShapeType {
+        /** A polygon shape type. */
+        polygon,
+
+        /** A polyline shape type. */
+        polyline
     }
 }

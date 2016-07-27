@@ -2171,12 +2171,20 @@ declare module Microsoft.Maps {
         constructor(x: number, y: number, zoom: number, width?: number, height?: number) 
 
         /**
+         * Compares two PyramidTileId objects and returns a boolean indicating if the two PyramidTileId are equal.
+         * @param tileId1 The first PyramidTileId to compare to the second.
+         * @param tileId2 The second PyramidTileId to compare to the first.
+         * @returns A boolean indicating if the two PyramidTileId are equal.
+         */
+        public static areEqual(tileId1: PyramidTileId, tileId2: PyramidTileId): boolean;
+
+        /**
          * Generates a PyramidTileId from a quadkey tile id string. 
          * @param quadkey The quadkey tile id string to convert into a PyramidTileId object.
          * @param width The tile's width in pixels. Default value: 256
          * @param height The tile's height in pixels. Default value: 256
          */
-        public static fromQuadkey(quadkey: string, width?: number, height?: number): PyramidTileId;
+        public static fromQuadKey(quadkey: string, width?: number, height?: number): PyramidTileId;
     }
 
     /** Provides static functions for generating random test data. */

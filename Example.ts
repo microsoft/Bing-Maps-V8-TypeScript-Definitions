@@ -45,3 +45,11 @@ Microsoft.Maps.loadModule('Microsoft.Maps.Autosuggest', {
         });
     }
 });
+
+Microsoft.Maps.loadModule('Microsoft.Maps.DrawingTools', {
+    credentials: 'Your Bing Maps Key',
+    callback: () => {
+        var drawingTools = new Microsoft.Maps.DrawingTools(map);
+        drawingTools.create(Microsoft.Maps.DrawingTools.ShapeType.polyline);
+    }
+});
