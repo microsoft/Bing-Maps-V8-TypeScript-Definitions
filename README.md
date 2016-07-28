@@ -86,4 +86,6 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 
 ## License
 
+MIT
+ 
 See [License](LICENSE.md) for full license text.
