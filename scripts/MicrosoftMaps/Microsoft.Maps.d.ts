@@ -2194,7 +2194,7 @@ declare module Microsoft.Maps {
         * @param withAlpha A boolean indicating if the color should have an alpha value or not. if set to true, a rgba value will be returned with an alpha value of 0.5.
         * @returns A css color string, hex or rgba.
         */
-        public getColor(withAlpha?: boolean): string;
+        public static getColor(withAlpha?: boolean): string;
 
         /**
         * Generates random Location objects.
@@ -2202,7 +2202,7 @@ declare module Microsoft.Maps {
         * @param bounds The bounding box in which all the locations should fall within.
         * @returns One or more random Locations.
         */
-        public getLocations(num?: number, bounds?: LocationRect): Location | Location[];
+        public static getLocations(num?: number, bounds?: LocationRect): Location | Location[];
 
         /**
         * Generates random pushpins.
@@ -2211,7 +2211,7 @@ declare module Microsoft.Maps {
         * @param options The options to use for rendering the pushpins. Default is random.
         * @returns One or more random Pushpins.
         */
-        public getPushpins(num?: number, bounds?: LocationRect, options?: IPushpinOptions): Pushpin | Pushpin[];
+        public static getPushpins(num?: number, bounds?: LocationRect, options?: IPushpinOptions): Pushpin | Pushpin[];
 
         /**
         * Generates random polylines.
@@ -2222,7 +2222,7 @@ declare module Microsoft.Maps {
         * @param options The options to use for rendering the polylines. Default is random.
         * @returns One or more random Polylines.
         */
-        public getPolylines(num?: number, bounds?: LocationRect, size?: number, scaleFactor?: number, options?: IPolylineOptions): Polyline | Polyline[];
+        public static getPolylines(num?: number, bounds?: LocationRect, size?: number, scaleFactor?: number, options?: IPolylineOptions): Polyline | Polyline[];
 
         /**
         * Generates random polygons.
@@ -2234,7 +2234,7 @@ declare module Microsoft.Maps {
         * @param addHole A boolean indicating if the generated polygon should have a hole or not. Note that this will double the number of Location objects that are in the Polygon. Default: false
         * @returns One or more random polygons.
         */
-        public getPolygons(num?: number, bounds?: LocationRect, size?: number, scaleFactor?: number, options?: IPolygonOptions, addHole?: boolean): Polygon | Polygon[];
+        public static getPolygons(num?: number, bounds?: LocationRect, size?: number, scaleFactor?: number, options?: IPolygonOptions, addHole?: boolean): Polygon | Polygon[];
     }
 
     /** Represents a tile layer that can be overlaid on top of the map. */
