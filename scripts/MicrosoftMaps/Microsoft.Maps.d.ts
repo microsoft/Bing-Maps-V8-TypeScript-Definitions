@@ -1890,6 +1890,12 @@ declare module Microsoft.Maps {
    */
     export class Polygon implements IPrimitive {
         /**
+         * Information that is linked to the polygon.
+         * Some modules such as the GeoJSON, and Spatial Data Service modules will also often add information to this property.
+         */
+        public metadata: any;
+
+        /**
          * @constructor
          * @param rings A Location array for basic polygon with single outer perimeter,
          * or an array of Location arrays for advanced polygon (multi-polygon, polygon with holes, or combination of polygons).
@@ -1969,6 +1975,12 @@ declare module Microsoft.Maps {
     * The Polyline class derives from the IPrimitive interface.
     */
     export class Polyline implements IPrimitive {
+        /**
+         * Information that is linked to the polyline.
+         * Some modules such as the GeoJSON, and Spatial Data Service modules will also often add information to this property.
+         */
+        public metadata: any;
+
         /**
         * @constructor
         * @param locations An array of locations that make up the path of the polyine.
