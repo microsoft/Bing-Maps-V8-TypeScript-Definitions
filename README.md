@@ -57,7 +57,7 @@ The following shows the intellisense for events. Notice how a list of the suppor
 
 ![Bing Maps V8 Event Intellisense](images/V8EventIntellisense.gif "Bing Maps V8 Event Intellisense")
 
-The following shows the intellisense for adding modules. A list of the supported modules appears, saving you from having to go looking * for the correct name/spelling used in Bing Maps V8.
+The following shows the intellisense for adding modules. A list of the supported modules appears, saving you from having to go looking for the correct name/spelling used in Bing Maps V8.
 
 ![Bing Maps V8 Load Module Intellisense](images/V8LoadModuleIntellisense.gif "Bing Maps V8 Load Module Intellisense")
 
