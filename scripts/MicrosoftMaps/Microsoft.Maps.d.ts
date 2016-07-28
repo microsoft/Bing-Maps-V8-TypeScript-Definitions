@@ -2032,6 +2032,12 @@ declare module Microsoft.Maps {
     export class Pushpin implements IPrimitive {
 
         /**
+         * Information that is linked to the pushpin.
+         * Some modules such as the GeoJSON, and Spatial Data Service modules will also often add information to this property.
+         */
+        public metadata: any;
+
+        /**
         * @constructor
         * @param location A Location object that specifies where to display the pushpin.
         * @param options Options used when creating the Pushpin.
