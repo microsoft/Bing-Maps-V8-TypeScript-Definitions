@@ -126,7 +126,7 @@ declare module Microsoft.Maps {
         * Creates a drawing manager which allows multi-shape editing and displays the toolbar.
         * @param callback A callback function that is triggered after the DrawingTools have loaded. 
         */
-        public showDrawingManager(callback: (manager: DrawingManager) => void): void;
+        public showDrawingManager(callback?: (manager: DrawingManager) => void): void;
     }
 }
 

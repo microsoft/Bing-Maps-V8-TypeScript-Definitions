@@ -937,7 +937,7 @@ declare module Microsoft.Maps {
         * @param handler The callback function to handle the event when triggered. 
         * @returns The handler id.
         */
-        public static addHandler(target: DrawingManager, eventName: string, handler: (eventArg?: IPrimitive | DrawingMode) => void): IHandlerId;
+        public static addHandler(target: DrawingManager, eventName: string, handler: (eventArg?: IPrimitive | DrawingTools.DrawingMode) => void): IHandlerId;
 
         /**
         * Attaches the handler for the event that is thrown by the target. Use the return object to remove the handler using the removeHandler method.
@@ -1017,7 +1017,7 @@ declare module Microsoft.Maps {
          * disposed, drawingChanged, drawingChanging, drawingEnded, drawingErased, drawingModeChanged, drawingStarted
          * @param handler The callback function to handle the event when triggered.
          */
-        public static addOne(target: DrawingManager, eventName: string, handler: (eventArg?: IPrimitive | DrawingMode) => void): void;
+        public static addOne(target: DrawingManager, eventName: string, handler: (eventArg?: IPrimitive | DrawingTools.DrawingMode) => void): void;
 
         /**
          * Attaches the handler for the event that is thrown by the target, but only triggers the handler the first once after being attached.
@@ -1104,7 +1104,7 @@ declare module Microsoft.Maps {
          * @param throttleInterval throttle interval (in ms)
          * @returns The handler id.
          */
-        public static addThrottledHandler(target: DrawingManager, eventName: string, handler: (eventArg?: IPrimitive | DrawingMode) => void, throttleInterval: number): IHandlerId;
+        public static addThrottledHandler(target: DrawingManager, eventName: string, handler: (eventArg?: IPrimitive | DrawingTools.DrawingMode) => void, throttleInterval: number): IHandlerId;
 
         /**
          * Attaches the handler for the event that is thrown by the target, where the minimum interval between events (in milliseconds) is specified as a parameter.
