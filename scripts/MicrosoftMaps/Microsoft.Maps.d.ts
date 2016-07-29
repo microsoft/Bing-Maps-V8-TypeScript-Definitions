@@ -1314,7 +1314,7 @@ declare module Microsoft.Maps {
          * @param primitive The shape(s) to be added to the layer.
          * @param index The index at which to insert the shape into the layer.
          */
-        public add(primitive: IPrimitive, index?: number): void;
+        public add(primitive: IPrimitive | IPrimitive[], index?: number): void;
 
         /**
          * Clears all the data
