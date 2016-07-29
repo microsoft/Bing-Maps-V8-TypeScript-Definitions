@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Microsoft.BingMaps.V8.TypeScript</id>
-        <version>1.0.1</version>
+        <version>1.0.3</version>
         <title>Bing Maps V8 TypeScript Definitions</title>
         <authors>Microsoft</authors>
         <owners>microsoft bingmaps</owners>
@@ -17,4 +17,19 @@
         <language />
         <tags>Microsoft "Bing Maps" Maps GIS TypeScript V8 Web Map Geospatial JavaScript</tags>
     </metadata>
+    <files>
+        <file src="..\scripts\MicrosoftMaps\Modules\Autosuggest.d.ts" target="content\scripts\MicrosoftMaps\Modules\Autosuggest.d.ts" />
+        <file src="..\scripts\MicrosoftMaps\Modules\Clustering.d.ts" target="content\scripts\MicrosoftMaps\Modules\Clustering.d.ts" />
+        <file src="..\scripts\MicrosoftMaps\Modules\Directions.d.ts" target="content\scripts\MicrosoftMaps\Modules\Directions.d.ts" />
+        <file src="..\scripts\MicrosoftMaps\Modules\DrawingTools.d.ts" target="content\scripts\MicrosoftMaps\Modules\DrawingTools.d.ts" />
+        <file src="..\scripts\MicrosoftMaps\Modules\GeoJSON.d.ts" target="content\scripts\MicrosoftMaps\Modules\GeoJSON.d.ts" />
+        <file src="..\scripts\MicrosoftMaps\Modules\HeatMapLayer.d.ts" target="content\scripts\MicrosoftMaps\Modules\HeatMapLayer.d.ts" />
+        <file src="..\scripts\MicrosoftMaps\Modules\Search.d.ts" target="content\scripts\MicrosoftMaps\Modules\Search.d.ts" />
+        <file src="..\scripts\MicrosoftMaps\Modules\SpatialDataService.d.ts" target="content\scripts\MicrosoftMaps\Modules\SpatialDataService.d.ts" />
+        <file src="..\scripts\MicrosoftMaps\Modules\SpatialMath.d.ts" target="content\scripts\MicrosoftMaps\Modules\SpatialMath.d.ts" />
+        <file src="..\scripts\MicrosoftMaps\Modules\Traffic.d.ts" target="content\scripts\MicrosoftMaps\Modules\Traffic.d.ts" />
+        <file src="..\scripts\MicrosoftMaps\Modules\WellKnownText.d.ts" target="content\scripts\MicrosoftMaps\Modules\WellKnownText.d.ts" />
+        <file src="..\scripts\MicrosoftMaps\Microsoft.Maps.All.d.ts" target="content\scripts\MicrosoftMaps\Microsoft.Maps.All.d.ts" />
+        <file src="..\scripts\MicrosoftMaps\Microsoft.Maps.d.ts" target="content\scripts\MicrosoftMaps\Microsoft.Maps.d.ts" />
+    </files>
 </package>
