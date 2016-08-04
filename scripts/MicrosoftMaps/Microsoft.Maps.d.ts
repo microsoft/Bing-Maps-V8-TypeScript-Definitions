@@ -165,6 +165,15 @@ declare module Microsoft.Maps {
         postalCode: string;
     }  
 
+    /** Represents the options that can be used when initializing a custom overlay. **/
+    export interface ICustomOverlayOptions {
+        /**
+        * Specifies if the custom overlay should eb rendered above or below the label layer of the map. When above,
+        * elements in the overlay can be clickable. Default: True
+        */
+        beneathLabels: boolean;
+    }
+
     /** Base data layer interface. */
     export interface IDataLayer extends ILayer {
         /** Clears all data in the layer. */
@@ -811,6 +820,49 @@ declare module Microsoft.Maps {
          * @returns The rgba notation as rgba(rr, gg, bb, aa)
          */
         public toRgba(): string;
+    }
+
+    /**
+     * You can use this class to create custom overlays on top of the map. These can be static overlays such as custom
+     * navigation bars, or dynamic overlays such as custom visualization layers. CustomOverlays can be added to the map
+     * just like any other layer using the map.layers property.
+     */
+    export class CustomOverlay implements ILayer {
+        /** A reference the the map instance that the overlay was added to. This will be null until the onLoad function has fired. **/
+        _map: Map;
+
+        /**
+         * @constructor
+         * @param options The options to use when initializing the custom overlay.
+         */
+        constructor(options?: ICustomOverlayOptions);
+
+        /**
+         * Gets the html element of this custom overlay.
+         * @returns Yhe htmlElement of this overlay.
+         */
+        public getHtmlElement(): HTMLElement;
+
+        /**
+         * Updates the html element of this custom overlay.
+         * @param htmlElement The new htmlElement to set for the overlay.
+         */
+        public setHtmlElement(htmlElement: HTMLElement): void;
+
+        /**
+         * Implement this method to perform any task that should be done when the overlay is added to the map.
+         */
+        public onAdd(): void;
+
+        /**
+         * Implement this methof to perform any task that should be done after the overlay has been added to the map.
+         */
+        public onRemove(): void;
+
+        /**
+         * Implement this method to perform any tasks that should be done when the overlay is removed from the map.
+         */
+        public onLoad(): void;
     }
 
     /**

@@ -53,3 +53,68 @@ Microsoft.Maps.loadModule('Microsoft.Maps.DrawingTools', {
         drawingTools.create(Microsoft.Maps.DrawingTools.ShapeType.polyline);
     }
 });
+
+
+/***********************
+* Custom Overlay Example
+************************/
+
+class TopographicOverlay extends Microsoft.Maps.CustomOverlay {
+
+    bounds: Microsoft.Maps.LocationRect;
+    image: string;
+
+    private img: HTMLImageElement;
+
+    constructor(bounds: Microsoft.Maps.LocationRect, image: string) {
+        super({ beneathLabels: true });
+
+        this.bounds = bounds;
+        this.image = image;
+    }
+
+    onAdd() {
+        //Create an image element that will be used as the overlay.
+        this.img = document.createElement('img');
+        this.img.src = this.image;
+        this.img.style.width = '100%';
+        this.img.style.height = '100%';
+        this.img.style.position = 'absolute';
+        this.setHtmlElement(this.img);
+    }
+
+    onLoad() {
+        this.repositionOverlay();
+
+        //Update the position of the image when the view changes.
+        Microsoft.Maps.Events.addHandler(map, 'viewchange', function () {
+            this.repositionOverlay();
+        });
+    }
+
+    onRemove() {
+        //Logic to perform when overlay has been removed from the map.
+    }
+
+    private repositionOverlay() {
+        //Streach and position the image based on the bounding box pixel coordinates.
+        var topLeft = <Microsoft.Maps.Point>map.tryLocationToPixel(this.bounds.getNorthwest(), Microsoft.Maps.PixelReference.control);
+        var bottomRight = <Microsoft.Maps.Point>map.tryLocationToPixel(this.bounds.getSoutheast(), Microsoft.Maps.PixelReference.control);
+
+        this.img.style.left = topLeft.x + 'px';
+        this.img.style.top = topLeft.y + 'px';
+        this.img.style.width = (bottomRight.x - topLeft.x) + 'px';
+        this.img.style.width = (bottomRight.x - topLeft.x) + 'px';
+        this.img.style.height = (bottomRight.y - topLeft.y) + 'px';
+    }
+}
+
+//The bounding box and url for the image to overlay.
+var bounds = Microsoft.Maps.LocationRect.fromCorners(new Microsoft.Maps.Location(40.5, -123.5), new Microsoft.Maps.Location(40, -123));
+var imageSrc = 'https://bingmapsisdk.blob.core.windows.net/isdksamples/topographicMap.gif';
+
+//Implement the new custom overlay class.
+var overlay = new TopographicOverlay(bounds, imageSrc);
+
+//Add the custom overlay to the map.
+map.layers.insert(overlay);
