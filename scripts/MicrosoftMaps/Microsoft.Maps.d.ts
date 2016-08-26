@@ -61,7 +61,7 @@ declare module Microsoft.Maps {
         /** A grayscale version of the road maps. */
         //grayscale,
 
-        /** The Mercator map type is being used. This setting removes the base map tiles. */
+        /** Displays a blank canvas that uses the mercator map project. It basically removed the base maps layer. */
         mercator,
 
         /** Ordnance survey map type (en-gb only). */
