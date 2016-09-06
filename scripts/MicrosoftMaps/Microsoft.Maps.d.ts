@@ -50,16 +50,14 @@ declare module Microsoft.Maps {
         /** The aerial map type which uses top-down satellite & airplane imagery. */
         aerial,
 
-        //TODO: uncomment new map styles when available.
-
         /** A darker version of the road maps. */
-        //canvasDark,
+        canvasDark,
 
         /** A lighter version of the road maps which also has some of the details such as hill shading disabled. */
-        //canvasLight,
+        canvasLight,
 
         /** A grayscale version of the road maps. */
-        //grayscale,
+        grayscale,
 
         /** Displays a blank canvas that uses the mercator map project. It basically removed the base maps layer. */
         mercator,
@@ -163,7 +161,37 @@ declare module Microsoft.Maps {
 
         /** The post code, postal code, or ZIP code of an address. An example is a US ZIP code, such as “98152”. */
         postalCode: string;
-    }  
+    }
+    
+    /** The event args for when a layer frame is being loaded in an AnimtedTileLayer. **/
+    export interface IAnimatedFrameEventArgs {
+        /** The animated tile layer that the frame belongs to. **/
+        animatedTileLayer: AnimatedTileLayer;
+
+        /** The index of the frame being loaded. **/
+        index: number;
+    }
+
+    /** An object that defines the options for an AnimatedTileLayer. **/
+    export interface IAnimatedTileLayerOptions {
+        /** A boolean that specifies whether the animation should auto-start when it is added to the map or not. Default: true **/
+        autoPlay?: boolean;
+
+        /** The number of miliseconds between two layer frames. Default: 1000 **/
+        frameRate?: number;
+
+        /** A custom loading screen to show on the map when the map tiles are being fetched. **/
+        loadingScreen?: CustomOverlay;
+
+        /** The max amount of total loading time of all tiles in a viewport in milliseconds. Default: 15000 **/
+        maxTotalLoadTime?: number;
+
+        /** The array of tile layer sources to animate through. **/
+        mercator: TileSource[];
+
+        /** A boolean specifying if the animated tile layer is visible or not. **/
+        visible?: boolean;
+    }
 
     /** Represents the options that can be used when initializing a custom overlay. **/
     export interface ICustomOverlayOptions {
@@ -221,7 +249,7 @@ declare module Microsoft.Maps {
         * A list of the infobox actions, where each item is a label (the link text) or icon (the URL of the image to use as the icon link) and eventHandler
         * (name of the function handling a click of the action link). Note that this is not supported when using htmlContent, use HTML anchors instead.
         */
-        actions?: InfoboxActions[];
+        actions?: IInfoboxActions[];
 
         /** The string displayed inside the infobox. */
         description?: string;
@@ -234,6 +262,12 @@ declare module Microsoft.Maps {
 
         /** The location on the map where the infobox’s anchor is attached. */
         location?: Location;
+
+        /** The maximium size that the infobox height can expand to based on it’s content. **/
+        maxHeight: number;
+
+        /** The maximium size that the infobox width can expand to based on it’s content. **/
+        maxWidth: number;
 
         /**
         * The amount the infobox pointer is shifted from the location of the infobox, or if showPointer is false, then it is the amount the info box bottom
@@ -269,12 +303,30 @@ declare module Microsoft.Maps {
     }
 
     /**  An object used to define a clickable action on an infobox. */
-    export interface InfoboxActions {
+    export interface IInfoboxActions {
         /** The text to display for the action. */
         label: string;
 
         /** The function to call when the label is clicked.  */
         eventHandler: () => void;
+    }
+
+    /** An object that contains information about an infobox event. **/
+    export interface IInfoboxEventArgs {
+        /** The event that occurred. **/
+        eventName: string;
+
+        /** The x-value of the pixel coordinate on the page of the mouse cursor. **/
+        pageX: number;
+
+        /** The y-value of the pixel coordinate on the page of the mouse cursor. **/
+        pageY: number;
+
+        /** The infobox object that fired the event. **/
+        target: Infobox;
+
+        /** The type of the object that fired the event.This will always be 'infobox'. **/
+        targetType: string;
     }
 
     /** Map or View options */
@@ -307,6 +359,20 @@ declare module Microsoft.Maps {
         * Default: false
         */
         disableScrollWheelZoom?: boolean;
+
+        /**
+        * A boolean indicating whether to disable streetside mode.If this property is set to true, streetside will be removed from
+        * the navigation bar, and the automatic coverage overlay will be disabled when zoomed in at lower zoom levels. Default false
+        * This property can only be set when using the Map constructor.
+        */
+        disableStreetside?: boolean;
+
+        /**
+        * A boolean indicating whether to disable the automatic streetside coverage layer that appears when zoomed in at lower zoom
+        * levels. Default false
+        * This property can only be set when using the Map constructor.
+        **/
+        disableStreetsideAutoCoverage?: boolean; 
 
         /** A boolean value indicating whether to disable the user's ability to zoom in or out. Default: false */
         disableZooming?: boolean;
@@ -344,15 +410,6 @@ declare module Microsoft.Maps {
         * is at least 400 pixels.
         */
         showBreadcrumb?: boolean;
-
-        /** A boolean value indicating whether to show the grayscale map type in the nav bar. Default: false */
-        showGrayscaleInNavBar?: boolean;
-
-        /** A boolean value indicating whether to show the canvas dark map type in the nav bar. Default: false */
-        showCanvasDarkInNavBar?: boolean;
-
-        /** A boolean value indicating whether to show the canvas light map type in the nav bar. Default: false */
-        showCanvasLightInNavBar?: boolean;
 
         /**
         * A boolean value indicating whether to show the map navigation control. Default: true This property can only be set when using the Map constructor.
@@ -513,6 +570,9 @@ declare module Microsoft.Maps {
 
     /** Options used for customizing Polylines. */
     export interface IPolylineOptions extends IPrimitiveOptions {
+        /** Indicates if drawn shape should be generalized based on the zoom level to improve rendering performance. Default true **/
+        generalizable: boolean;
+
         /** CSS string or Color object as the poly's color. */
         strokeColor?: string | Color;
 
@@ -674,9 +734,6 @@ declare module Microsoft.Maps {
         */
         bounds?: LocationRect;
 
-        /** The pixel height of each tile in the tile source. Default: 256 */
-        height?: number;
-
         /** The maximum zoom level tiles that tiles should be rendered at. */
         maxZoom?: number;
 
@@ -691,9 +748,6 @@ declare module Microsoft.Maps {
         * build custom tile URL’s that may require some additional calculations for a tile.
         */
         uriConstructor: string | ((tile: PyramidTileId) => void);
-
-        /** The pixel width of each tile in the tile source. Default: 256 */
-        width?: number;
     }
 
     /** Represents options that can be used to set the view of the map. */
@@ -759,6 +813,62 @@ declare module Microsoft.Maps {
     //////////////////////////////////////////////
     /// Classes
     //////////////////////////////////////////////
+
+    /**
+     * Provides a layer which can smoothly animate through an array of tile layer sources.
+     */
+    export class AnimatedTileLayer {
+        /**
+         * @contstructor
+         * @param options Options that define how to animate between the specified tile layers. 
+         */
+        constructor(options?: IAnimatedTileLayerOptions);
+
+        /**
+        * Gets the frame rate of this animated tile layer.
+        * @returns The frame rate of this animated tile layer.
+        **/
+        public getFrameRate(): number;
+
+        /**
+        * Gets the loading screen overlay when tiles are being fetched.
+        * @returns The loading screen overlay when tiles are being fetched.
+        **/
+        public getLoadingScreen(): CustomOverlay;
+
+        /**
+        * Gets the maximum total tile fetching time of this animated tile layer.
+        * @returns The maximum total tile fetching time of this animated tile layer
+        **/
+        public getMaxTotalLoadTime(): number;
+
+        /**
+        * Gets the tile sources associated with this layer.
+        * @returns The tile sources associated with this layer.
+        **/
+        public getTileSources(): TileSource[];
+
+        /**
+        * Gets the visibility of this animated tile layer.
+        * @returns The visibility of this animated tile layer.
+        **/
+        public getVisible(): boolean;
+
+        /** Pause the tile layer animation. **/
+        public pause(): void;
+
+        /** Play the animation either from start or where it was paused. **/
+        public play(): void;
+
+        /**
+        * Sets the options for the animated tile layer.
+        * @params Options that define how to animate between the specified tile layers.
+        **/
+        public setOptions(options: IAnimatedTileLayerOptions): void;
+
+        /** Stop the layer animation, hide layer, and reset frame to the beginning. **/
+        public stop(): void;
+    }
 
     /** Class that represents a color */
     export class Color {
@@ -839,9 +949,15 @@ declare module Microsoft.Maps {
 
         /**
          * Gets the html element of this custom overlay.
-         * @returns Yhe htmlElement of this overlay.
+         * @returns The htmlElement of this overlay.
          */
         public getHtmlElement(): HTMLElement;
+
+        /**
+         * Gets the map that this overlay is attached to.
+         * @returns The map that this overlay is attached to.
+         */
+        public getMap(): Map;
 
         /**
          * Updates the html element of this custom overlay.
@@ -943,7 +1059,7 @@ declare module Microsoft.Maps {
 
         /**
          * Attaches the handler for the event that is thrown by the target. Use the return object to remove the handler using the removeHandler method.
-         * @param target The object to attach the event to; Map, IPrimitive, Layer, DrawingManager, DirectionsManager, etc.
+         * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
          * @param eventName The type of event to attach. Supported events:
          * click, dblclick, maptypechanged, mousedown, mousemove, mouseout, mouseover, mouseup, mousewheel, rightclick, viewchange, viewchangeend, viewchangestart
          * @param handler The callback function to handle the event when triggered. 
@@ -953,7 +1069,7 @@ declare module Microsoft.Maps {
 
         /**
          * Attaches the handler for the event that is thrown by the target. Use the return object to remove the handler using the removeHandler method.
-         * @param target The object to attach the event to; Map, IPrimitive, Layer, DrawingManager, DirectionsManager, etc.
+         * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
          * @param eventName The type of event to attach. Supported Events:
          * changed, click, drag, dragend, dragstart, mousedown, mouseout, mouseover, mouseup
          * @param handler The callback function to handle the event when triggered. 
@@ -963,7 +1079,7 @@ declare module Microsoft.Maps {
 
         /**
         * Attaches the handler for the event that is thrown by the target. Use the return object to remove the handler using the removeHandler method.
-        * @param target The object to attach the event to; Map, IPrimitive, Layer, DrawingManager, DirectionsManager, etc.
+        * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
         * @param eventName The type of event to attach. Supported Events:
         * changed, click, mousedown, mouseout, mouseover, mouseup
         * @param handler The callback function to handle the event when triggered. 
@@ -973,7 +1089,17 @@ declare module Microsoft.Maps {
 
         /**
          * Attaches the handler for the event that is thrown by the target. Use the return object to remove the handler using the removeHandler method.
-         * @param target The object to attach the event to; Map, IPrimitive, Layer, DrawingManager, DirectionsManager, etc.
+         * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
+         * @param eventName The type of event to attach. Supported Events:
+         * click, infoboxChanged, mouseenter, mouseleave
+         * @param handler The callback function to handle the event when triggered. 
+         * @returns The handler id.
+         */
+        public static addHandler(target: Infobox, eventName: string, handler: (eventArg?: IInfoboxEventArgs) => void): IHandlerId;
+
+        /**
+         * Attaches the handler for the event that is thrown by the target. Use the return object to remove the handler using the removeHandler method.
+         * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
          * @param eventName The type of event to attach. Supported Events:
          * click, mousedown, mouseout, mouseover, mouseup, rightclick
          * @param handler The callback function to handle the event when triggered. 
@@ -983,7 +1109,17 @@ declare module Microsoft.Maps {
 
         /**
         * Attaches the handler for the event that is thrown by the target. Use the return object to remove the handler using the removeHandler method.
-        * @param target The object to attach the event to; Map, IPrimitive, Layer, DrawingManager, DirectionsManager, etc.
+        * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
+        * @param eventName The type of event to attach. Supported Events:
+        * drawingChanged, drawingChanging, drawingEnded, drawingModeChanged, drawingStarted
+        * @param handler The callback function to handle the event when triggered. 
+        * @returns The handler id.
+        */
+        public static addHandler(target: DrawingTools, eventName: string, handler: (eventArg?: IPrimitive | IDrawingModeChangedData) => void): IHandlerId;
+
+        /**
+        * Attaches the handler for the event that is thrown by the target. Use the return object to remove the handler using the removeHandler method.
+        * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
         * @param eventName The type of event to attach. Supported Events:
         * disposed, drawingChanged, drawingChanging, drawingEnded, drawingErased, drawingModeChanged, drawingStarted
         * @param handler The callback function to handle the event when triggered. 
@@ -993,7 +1129,7 @@ declare module Microsoft.Maps {
 
         /**
         * Attaches the handler for the event that is thrown by the target. Use the return object to remove the handler using the removeHandler method.
-        * @param target The object to attach the event to; Map, IPrimitive, Layer, DrawingManager, DirectionsManager, etc.
+        * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
         * @param eventName The type of event to attach. Supported Events:
         * • directionsError
         * • directionsUpdated
@@ -1004,7 +1140,7 @@ declare module Microsoft.Maps {
 
         /**
         * Attaches the handler for the event that is thrown by the target. Use the return object to remove the handler using the removeHandler method.
-        * @param target The object to attach the event to; Map, IPrimitive, Layer, DrawingManager, DirectionsManager, etc.
+        * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
         * @param eventName The type of event to attach. Supported Events:
         * • entityadded
         * • entityremoved
@@ -1015,7 +1151,7 @@ declare module Microsoft.Maps {
 
         /**
          * Attaches the handler for the event that is thrown by the target. Use the return object to remove the handler using the removeHandler method.
-         * @param target The object to attach the event to; Map, IPrimitive, Layer, DrawingManager, DirectionsManager, etc.
+         * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
          * @param eventName The type of event to attach.
          * @param handler The callback function to handle the event when triggered. 
          * @returns The handler id.
@@ -1028,7 +1164,7 @@ declare module Microsoft.Maps {
 
         /**
          * Attaches the handler for the event that is thrown by the target, but only triggers the handler the first once after being attached.
-         * @param target The object to attach the event to; Map, IPrimitive, Layer, DrawingManager, DirectionsManager, etc.
+         * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
          * @param eventName The type of event to attach. Supported events:
          * click, dblclick, maptypechanged, mousedown, mousemove, mouseout, mouseover, mouseup, mousewheel, rightclick, viewchange, viewchangeend, viewchangestart
          * @param handler The callback function to handle the event when triggered.
@@ -1037,7 +1173,7 @@ declare module Microsoft.Maps {
 
         /**
          * Attaches the handler for the event that is thrown by the target, but only triggers the handler the first once after being attached.
-         * @param target The object to attach the event to; Map, IPrimitive, Layer, DrawingManager, DirectionsManager, etc.
+         * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
          * @param eventName The type of event to attach. Supported Events:
          * changed, click, drag, dragend, dragstart, mousedown, mouseout, mouseover, mouseup
          * @param handler The callback function to handle the event when triggered.
@@ -1046,7 +1182,7 @@ declare module Microsoft.Maps {
 
         /**
          * Attaches the handler for the event that is thrown by the target, but only triggers the handler the first once after being attached.
-         * @param target The object to attach the event to; Map, IPrimitive, Layer, DrawingManager, DirectionsManager, etc.
+         * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
          * @param eventName The type of event to attach. Supported Events:
          * changed, click, mousedown, mouseout, mouseover, mouseup
          * @param handler The callback function to handle the event when triggered.
@@ -1055,7 +1191,16 @@ declare module Microsoft.Maps {
 
         /**
          * Attaches the handler for the event that is thrown by the target, but only triggers the handler the first once after being attached.
-         * @param target The object to attach the event to; Map, IPrimitive, Layer, DrawingManager, DirectionsManager, etc.
+         * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
+         * @param eventName The type of event to attach. Supported Events:
+         * click, infoboxChanged, mouseenter, mouseleave
+         * @param handler The callback function to handle the event when triggered. 
+         */
+        public static addOne(target: Infobox, eventName: string, handler: (eventArg?: IInfoboxEventArgs) => void): void;
+
+        /**
+         * Attaches the handler for the event that is thrown by the target, but only triggers the handler the first once after being attached.
+         * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
          * @param eventName The type of event to attach. Supported Events:
          * click, mousedown, mouseout, mouseover, mouseup, rightclick
          * @param handler The callback function to handle the event when triggered.
@@ -1063,8 +1208,17 @@ declare module Microsoft.Maps {
         public static addOne(target: Layer, eventName: string, handler: (eventArg?: ILayerMouseEventArgs) => void): void;
 
         /**
+        * Attaches the handler for the event that is thrown by the target, but only triggers the handler the first once after being attached.
+        * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
+        * @param eventName The type of event to attach. Supported Events:
+        * drawingChanged, drawingChanging, drawingEnded, drawingModeChanged, drawingStarted
+        * @param handler The callback function to handle the event when triggered. 
+        */
+        public static addOne(target: DrawingTools, eventName: string, handler: (eventArg?: IPrimitive | IDrawingModeChangedData) => void): void;
+
+        /**
          * Attaches the handler for the event that is thrown by the target, but only triggers the handler the first once after being attached.
-         * @param target The object to attach the event to; Map, IPrimitive, Layer, DrawingManager, DirectionsManager, etc.
+         * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
          * @param eventName The type of event to attach. Supported Events:
          * disposed, drawingChanged, drawingChanging, drawingEnded, drawingErased, drawingModeChanged, drawingStarted
          * @param handler The callback function to handle the event when triggered.
@@ -1073,7 +1227,7 @@ declare module Microsoft.Maps {
 
         /**
          * Attaches the handler for the event that is thrown by the target, but only triggers the handler the first once after being attached.
-         * @param target The object to attach the event to; Map, IPrimitive, Layer, DrawingManager, DirectionsManager, etc.
+         * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
          * @param eventName The type of event to attach. Supported Events:
          * • directionsError
          * • directionsUpdated
@@ -1083,7 +1237,7 @@ declare module Microsoft.Maps {
 
         /**
          * Attaches the handler for the event that is thrown by the target, but only triggers the handler the first once after being attached.
-         * @param target The object to attach the event to; Map, IPrimitive, Layer, DrawingManager, DirectionsManager, etc.
+         * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
          * @param eventName The type of event to attach. Supported Events:
          * • entityadded
          * • entityremoved
@@ -1093,7 +1247,7 @@ declare module Microsoft.Maps {
 
         /**
          * Attaches the handler for the event that is thrown by the target, but only triggers the handler the first once after being attached.
-         * @param target The object to attach the event to; Map, IPrimitive, Layer, DrawingManager, DirectionsManager, etc.
+         * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
          * @param eventName The type of event to attach.
          * @param handler The callback function to handle the event when triggered.
          */
@@ -1105,7 +1259,7 @@ declare module Microsoft.Maps {
 
         /**
          * Attaches the handler for the event that is thrown by the target, where the minimum interval between events (in milliseconds) is specified as a parameter.
-         * @param target The object to attach the event to; Map, IPrimitive, Layer, DrawingManager, DirectionsManager, etc.
+         * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
          * @param eventName The type of event to attach. Supported events:
          * click, dblclick, maptypechanged, mousedown, mousemove, mouseout, mouseover, mouseup, mousewheel, rightclick, viewchange, viewchangeend, viewchangestart
          * @param handler The callback function to handle the event when triggered.
@@ -1116,7 +1270,7 @@ declare module Microsoft.Maps {
 
         /**
          * Attaches the handler for the event that is thrown by the target, where the minimum interval between events (in milliseconds) is specified as a parameter.
-         * @param target The object to attach the event to; Map, IPrimitive, Layer, DrawingManager, DirectionsManager, etc.
+         * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
          * @param eventName The type of event to attach. Supported Events:
          * changed, click, drag, dragend, dragstart, mousedown, mouseout, mouseover, mouseup
          * @param handler The callback function to handle the event when triggered.
@@ -1127,7 +1281,7 @@ declare module Microsoft.Maps {
 
         /**
          * Attaches the handler for the event that is thrown by the target, where the minimum interval between events (in milliseconds) is specified as a parameter.
-         * @param target The object to attach the event to; Map, IPrimitive, Layer, DrawingManager, DirectionsManager, etc.
+         * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
          * @param eventName The type of event to attach. Supported Events:
          * changed, click, mousedown, mouseout, mouseover, mouseup
          * @param handler The callback function to handle the event when triggered.
@@ -1137,8 +1291,18 @@ declare module Microsoft.Maps {
         public static addThrottledHandler(target: Polyline | Polygon, eventName: string, handler: (eventArg?: IMouseEventArgs | IPrimitiveChangedEventArgs) => void, throttleInterval: number): IHandlerId;
 
         /**
+        * Attaches the handler for the event that is thrown by the target, where the minimum interval between events (in milliseconds) is specified as a parameter.
+        * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
+        * @param eventName The type of event to attach. Supported Events:
+        * click, infoboxChanged, mouseenter, mouseleave
+        * @param handler The callback function to handle the event when triggered. 
+        * @returns The handler id.
+        */
+        public static addThrottledHandler(target: Infobox, eventName: string, handler: (eventArg?: IInfoboxEventArgs) => void): IHandlerId;
+
+        /**
          * Attaches the handler for the event that is thrown by the target, where the minimum interval between events (in milliseconds) is specified as a parameter.
-         * @param target The object to attach the event to; Map, IPrimitive, Layer, DrawingManager, DirectionsManager, etc.
+         * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
          * @param eventName The type of event to attach. Supported Events:
          * click, mousedown, mouseout, mouseover, mouseup, rightclick
          * @param handler The callback function to handle the event when triggered.
@@ -1148,8 +1312,18 @@ declare module Microsoft.Maps {
         public static addThrottledHandler(target: Layer, eventName: string, handler: (eventArg?: ILayerMouseEventArgs) => void, throttleInterval: number): IHandlerId;
 
         /**
+        * Attaches the handler for the event that is thrown by the target, where the minimum interval between events (in milliseconds) is specified as a parameter.
+        * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
+        * @param eventName The type of event to attach. Supported Events:
+        * drawingChanged, drawingChanging, drawingEnded, drawingModeChanged, drawingStarted
+        * @param handler The callback function to handle the event when triggered. 
+        * @returns The handler id.
+        */
+        public static addThrottledHandler(target: DrawingTools, eventName: string, handler: (eventArg?: IPrimitive | IDrawingModeChangedData) => void): IHandlerId;
+
+        /**
          * Attaches the handler for the event that is thrown by the target, where the minimum interval between events (in milliseconds) is specified as a parameter.
-         * @param target The object to attach the event to; Map, IPrimitive, Layer, DrawingManager, DirectionsManager, etc.
+         * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
          * @param eventName The type of event to attach. Supported Events:
          * disposed, drawingChanged, drawingChanging, drawingEnded, drawingErased, drawingModeChanged, drawingStarted
          * @param handler The callback function to handle the event when triggered.
@@ -1160,7 +1334,7 @@ declare module Microsoft.Maps {
 
         /**
          * Attaches the handler for the event that is thrown by the target, where the minimum interval between events (in milliseconds) is specified as a parameter.
-         * @param target The object to attach the event to; Map, IPrimitive, Layer, DrawingManager, DirectionsManager, etc.
+         * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
          * @param eventName The type of event to attach. Supported Events:
          * • directionsError
          * • directionsUpdated
@@ -1172,7 +1346,7 @@ declare module Microsoft.Maps {
 
         /**
          * Attaches the handler for the event that is thrown by the target, where the minimum interval between events (in milliseconds) is specified as a parameter.
-         * @param target The object to attach the event to; Map, IPrimitive, Layer, DrawingManager, DirectionsManager, etc.
+         * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
          * @param eventName The type of event to attach. Supported Events:
          * • entityadded
          * • entityremoved
@@ -1184,7 +1358,7 @@ declare module Microsoft.Maps {
 
         /**
          * Attaches the handler for the event that is thrown by the target, where the minimum interval between events (in milliseconds) is specified as a parameter.
-         * @param target The object to attach the event to; Map, IPrimitive, Layer, DrawingManager, DirectionsManager, etc.
+         * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
          * @param eventName The type of event to attach.
          * @param handler The callback function to handle the event when triggered.
          * @param throttleInterval throttle interval (in ms)
@@ -1238,7 +1412,7 @@ declare module Microsoft.Maps {
         * use HTML anchors instead.
         * @returns
         */
-        public getActions(): InfoboxActions[];
+        public getActions(): IInfoboxActions[];
 
         /**
         * Gets the point on the infobox which is anchored to the map. An anchor of (0,0) is the top left corner of the infobox.
@@ -1269,6 +1443,18 @@ declare module Microsoft.Maps {
         * @returns The location of the infobox.
         */
         public getLocation(): Location;
+
+        /**
+         * Gets the maximium height setting for the infobox.
+         * @returns the maximium height setting for the infobox.
+         */
+        public getMaxHeight(): number;
+
+        /**
+         * Gets the maximium width setting for the infobox.
+         * @returns the maximium width setting for the infobox.
+         */
+        public getMaxWidth(): number;
 
         /**
         * Gets the amount the infobox pointer is shifted from the location of the infobox, or if showPointer is false, then it is the amount the infobox
@@ -1968,6 +2154,12 @@ declare module Microsoft.Maps {
         public getFillColor(): string | Color;
 
         /**
+         * Returns whether the polygon is generalizable based on zoom level or not.
+         * @returns whether the polygon is generalizable based on zoom level or not.
+         */
+        public getGeneralizable(): boolean;
+
+        /**
          * Gets the first ring of the polygon (for V7 compatability).
          * @returns An array of Locations that is the first ring of the polygon; or an empty array if the polygon has no ring at all.
          */
@@ -2045,6 +2237,12 @@ declare module Microsoft.Maps {
          * @returns CSS cursor string when polyline has events on it.
          */
         public getCursor(): string;
+        
+        /**
+         * Returns whether the polyline is generalizable based on zoom level or not.
+         * @returns whether the polyline is generalizable based on zoom level or not.
+         */
+        public getGeneralizable(): boolean;
 
         /**
          * Gets the locations that make up the polyline.
@@ -2400,7 +2598,7 @@ declare module Microsoft.Maps {
         * Gets a string that constructs tile URLs used to retrieve tiles for the tile layer.
         * @returns A string that constructs tile URLs used to retrieve tiles for the tile layer.
         */
-        public getUriConstructor(): string;
+        public getUriConstructor(): string | ((tile: PyramidTileId) => string);
 
         /**
         * Gets the pixel width of each tile in the tile source.

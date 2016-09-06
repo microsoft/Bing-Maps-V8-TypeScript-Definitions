@@ -90,6 +90,9 @@ declare module Microsoft.Maps {
         */
         location: Location;
 
+        /** A secondary title that provides additional context to the title value of the suggestion. **/
+        subtitle: string;
+
         /** The display title for the result (i.e. “Redmond”). */
         title: string;
     }

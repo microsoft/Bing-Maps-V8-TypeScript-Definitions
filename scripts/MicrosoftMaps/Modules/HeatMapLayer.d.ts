@@ -69,6 +69,9 @@ declare module Microsoft.Maps {
         * will scale based on zoom level so as to ensure that the radius is spatially accurate.
         */
         unit?: 'meters' | 'pixel';
+
+        /** A boolean indicating if the heat map layer is visible or not. **/
+        visible?: boolean;
     }
 
     /**
@@ -89,8 +92,17 @@ declare module Microsoft.Maps {
 
         /** Disposes the heat map layer. */
         public dispose(): void;
+        
+        /**
+         * Gets a boolean indicating if the heat map layer is visible or not.
+         * @returns A boolean indicating if the heat map layer is visible or not.
+         */
+        public getVisible(): boolean;
 
-        /** Hides the heat map layer. */
+        /** 
+        * @deprecated
+        * Hides the heat map layer.
+        */
         public hide(): void;
 
         /**
@@ -105,7 +117,16 @@ declare module Microsoft.Maps {
         */
         public setOptions(options: IHeatMapLayerOptions): void;
 
-        /** Shows the heat map layer. */
+        /**
+        * Sets the visibility of the heat map layer.
+        * @param visible A boolean indicating if the heat map layer is visible or not.
+        */
+        public setVisible(visible: boolean): void;
+
+        /** 
+        * @deprecated
+        * Shows the heat map layer.
+        */
         public show(): void;        
     }
 }

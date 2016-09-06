@@ -25,6 +25,16 @@
 /// <reference path="../Microsoft.Maps.d.ts"/>
 
 declare module Microsoft.Maps {
+    /** An object that contains the event arguments for when the drawing mode changes in the drawing tools. **/
+    export interface IDrawingModeChangedData {
+
+        /** The shape being modified by the drawing tools. **/
+        shape: IPrimitive;
+
+        /** The new drawing mode. **/
+        mode: DrawingTools.DrawingMode;
+    }
+
     /**
      * The DrawingManager class manages the ability to draw and edit multiple shapes on the map. Shapes managed by this class are rendered on a separate drawing layer.
      * User can use a mouse or a touch screen to draw on the map. When they are done, pressing the escape button or any button on the toolbar will exit the current drawing mode.
@@ -110,8 +120,9 @@ declare module Microsoft.Maps {
         /**
         * Initializes the drawing layer and instructs it to create a new shape of a given type.
         * @param shapeType The type of new shape to create.
+        * @param created A callback function that is fired after the initial shape is created.
         */
-        public create(shapeType: DrawingTools.ShapeType): void;
+        public create(shapeType: DrawingTools.ShapeType, created?: (shape: IPrimitive) => void): void;
 
         /** Disposes the instance of the DrawingTools class. */
         public dispose(): void;
@@ -121,6 +132,12 @@ declare module Microsoft.Maps {
         * @param shape A shape to put into editting mode.
         */
         public edit(shape: IPrimitive): void;
+
+        /**
+         * Finishes any shape create / edit operation currently in progress, and returns the shape that was created or editted through a specified callback function.
+         * @param finished A callback function to return the completed shape with.
+         */
+        public finish(finished?: (shape: IPrimitive) => void): void;
 
         /**
         * Creates a drawing manager which allows multi-shape editing and displays the toolbar.
