@@ -264,10 +264,10 @@ declare module Microsoft.Maps {
         location?: Location;
 
         /** The maximium size that the infobox height can expand to based on it’s content. **/
-        maxHeight: number;
+        maxHeight?: number;
 
         /** The maximium size that the infobox width can expand to based on it’s content. **/
-        maxWidth: number;
+        maxWidth?: number;
 
         /**
         * The amount the infobox pointer is shifted from the location of the infobox, or if showPointer is false, then it is the amount the info box bottom
@@ -571,7 +571,7 @@ declare module Microsoft.Maps {
     /** Options used for customizing Polylines. */
     export interface IPolylineOptions extends IPrimitiveOptions {
         /** Indicates if drawn shape should be generalized based on the zoom level to improve rendering performance. Default true **/
-        generalizable: boolean;
+        generalizable?: boolean;
 
         /** CSS string or Color object as the poly's color. */
         strokeColor?: string | Color;
