@@ -113,7 +113,7 @@ declare module Microsoft.Maps.Search {
         entityType: string;
 
         /** The geocoded location of the best result. */
-        location: IGeocodeLocation;
+        location: Location;
 
         /** The geocoded locations. */
         locations: IGeocodeLocation[];

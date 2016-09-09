@@ -54,6 +54,18 @@ Microsoft.Maps.loadModule('Microsoft.Maps.DrawingTools', {
     }
 });
 
+Microsoft.Maps.loadModule('Microsoft.Maps.Search', () => {
+    var searchManager = new Microsoft.Maps.Search.SearchManager(map);
+    searchManager.geocode({
+        bounds: map.getBounds(),
+        where: 'somewhere',
+        callback: (answer, userData) => {
+            map.setView({ bounds: answer.results[0].bestView });
+            map.entities.push(new Microsoft.Maps.Pushpin(answer.results[0].location));
+        }
+    });
+});`
+
 
 /***********************
 * Custom Overlay Example
