@@ -505,10 +505,10 @@ declare module Microsoft.Maps.Directions {
          * Clears the directions displayed and removes the route line from the map. 
          * This method does not remove waypoints from the route and retains all calculated direction information and option settings. 
          */
-        public clearDisplay();
+        public clearDisplay(): void;
 
         /** Deletes the DirectionsManager object and releases any associated resources. */
-        public dispose();
+        public dispose(): void;
 
         /**
          * Gets all the waypoints in the directions manager.

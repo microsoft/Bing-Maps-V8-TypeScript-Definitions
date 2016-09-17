@@ -263,10 +263,10 @@ declare module Microsoft.Maps {
         /** The location on the map where the infobox’s anchor is attached. */
         location?: Location;
 
-        /** The maximium size that the infobox height can expand to based on it’s content. **/
+        /** The maximium size that the infobox height can expand to based on it’s content. Default: 126 **/
         maxHeight?: number;
 
-        /** The maximium size that the infobox width can expand to based on it’s content. **/
+        /** The maximium size that the infobox width can expand to based on it’s content. Default: 256 **/
         maxWidth?: number;
 
         /**
@@ -995,7 +995,7 @@ declare module Microsoft.Maps {
         /**
          * Removes all shapes from the collection.
          */
-        public clear();
+        public clear(): void;
 
         /**
          * Gets the item at a specified index.
@@ -1071,7 +1071,7 @@ declare module Microsoft.Maps {
          * Attaches the handler for the event that is thrown by the target. Use the return object to remove the handler using the removeHandler method.
          * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
          * @param eventName The type of event to attach. Supported Events:
-         * changed, click, drag, dragend, dragstart, mousedown, mouseout, mouseover, mouseup
+         * changed, click, dblclick, drag, dragend, dragstart, mousedown, mouseout, mouseover, mouseup
          * @param handler The callback function to handle the event when triggered. 
          * @returns The handler id.
          */
@@ -1081,7 +1081,7 @@ declare module Microsoft.Maps {
         * Attaches the handler for the event that is thrown by the target. Use the return object to remove the handler using the removeHandler method.
         * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
         * @param eventName The type of event to attach. Supported Events:
-        * changed, click, mousedown, mouseout, mouseover, mouseup
+        * changed, click, dblclick, mousedown, mouseout, mouseover, mouseup
         * @param handler The callback function to handle the event when triggered. 
         * @returns The handler id.
         */
@@ -1101,7 +1101,7 @@ declare module Microsoft.Maps {
          * Attaches the handler for the event that is thrown by the target. Use the return object to remove the handler using the removeHandler method.
          * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
          * @param eventName The type of event to attach. Supported Events:
-         * click, mousedown, mouseout, mouseover, mouseup, rightclick
+         * click, dblclick, mousedown, mouseout, mouseover, mouseup, rightclick
          * @param handler The callback function to handle the event when triggered. 
          * @returns The handler id.
          */
@@ -1175,7 +1175,7 @@ declare module Microsoft.Maps {
          * Attaches the handler for the event that is thrown by the target, but only triggers the handler the first once after being attached.
          * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
          * @param eventName The type of event to attach. Supported Events:
-         * changed, click, drag, dragend, dragstart, mousedown, mouseout, mouseover, mouseup
+         * changed, click, dblclick, drag, dragend, dragstart, mousedown, mouseout, mouseover, mouseup
          * @param handler The callback function to handle the event when triggered.
          */
         public static addOne(target: Pushpin, eventName: string, handler: (eventArg?: IMouseEventArgs | IPrimitiveChangedEventArgs) => void): void;
@@ -1184,7 +1184,7 @@ declare module Microsoft.Maps {
          * Attaches the handler for the event that is thrown by the target, but only triggers the handler the first once after being attached.
          * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
          * @param eventName The type of event to attach. Supported Events:
-         * changed, click, mousedown, mouseout, mouseover, mouseup
+         * changed, click, dblclick, mousedown, mouseout, mouseover, mouseup
          * @param handler The callback function to handle the event when triggered.
          */
         public static addOne(target: Polyline | Polygon, eventName: string, handler: (eventArg?: IMouseEventArgs | IPrimitiveChangedEventArgs) => void): void;
@@ -1202,7 +1202,7 @@ declare module Microsoft.Maps {
          * Attaches the handler for the event that is thrown by the target, but only triggers the handler the first once after being attached.
          * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
          * @param eventName The type of event to attach. Supported Events:
-         * click, mousedown, mouseout, mouseover, mouseup, rightclick
+         * click, dblclick, mousedown, mouseout, mouseover, mouseup, rightclick
          * @param handler The callback function to handle the event when triggered.
          */
         public static addOne(target: Layer, eventName: string, handler: (eventArg?: ILayerMouseEventArgs) => void): void;
@@ -1272,7 +1272,7 @@ declare module Microsoft.Maps {
          * Attaches the handler for the event that is thrown by the target, where the minimum interval between events (in milliseconds) is specified as a parameter.
          * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
          * @param eventName The type of event to attach. Supported Events:
-         * changed, click, drag, dragend, dragstart, mousedown, mouseout, mouseover, mouseup
+         * changed, click, dblclick, drag, dragend, dragstart, mousedown, mouseout, mouseover, mouseup
          * @param handler The callback function to handle the event when triggered.
          * @param throttleInterval throttle interval (in ms)
          * @returns The handler id.
@@ -1283,7 +1283,7 @@ declare module Microsoft.Maps {
          * Attaches the handler for the event that is thrown by the target, where the minimum interval between events (in milliseconds) is specified as a parameter.
          * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
          * @param eventName The type of event to attach. Supported Events:
-         * changed, click, mousedown, mouseout, mouseover, mouseup
+         * changed, click, dblclick, mousedown, mouseout, mouseover, mouseup
          * @param handler The callback function to handle the event when triggered.
          * @param throttleInterval throttle interval (in ms)
          * @returns The handler id.
@@ -1304,7 +1304,7 @@ declare module Microsoft.Maps {
          * Attaches the handler for the event that is thrown by the target, where the minimum interval between events (in milliseconds) is specified as a parameter.
          * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
          * @param eventName The type of event to attach. Supported Events:
-         * click, mousedown, mouseout, mouseover, mouseup, rightclick
+         * click, dblclick, mousedown, mouseout, mouseover, mouseup, rightclick
          * @param handler The callback function to handle the event when triggered.
          * @param throttleInterval throttle interval (in ms)
          * @returns The handler id.
