@@ -308,7 +308,7 @@ declare module Microsoft.Maps {
         label: string;
 
         /** The function to call when the label is clicked.  */
-        eventHandler: () => void;
+        eventHandler: (eventArg?: MouseEvent) => void;
     }
 
     /** An object that contains information about an infobox event. **/
