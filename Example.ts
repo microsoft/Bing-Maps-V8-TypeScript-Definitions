@@ -64,7 +64,23 @@ Microsoft.Maps.loadModule('Microsoft.Maps.Search', () => {
             map.entities.push(new Microsoft.Maps.Pushpin(answer.results[0].location));
         }
     });
-});`
+});
+
+Microsoft.Maps.loadModule('Microsoft.Maps.Directions', () => {
+    var directionsManager = new Microsoft.Maps.Directions.DirectionsManager(map);
+    directionsManager.addWaypoint(new Microsoft.Maps.Directions.Waypoint({
+        address: 'Redmond, WA'
+    }));
+
+    directionsManager.addWaypoint(new Microsoft.Maps.Directions.Waypoint({
+        address: 'Seatle, WA'
+    }));
+
+    Microsoft.Maps.Events.addHandler(directionsManager, 'directionsUpdated', (args) => {
+
+    });
+    directionsManager.calculateDirections();
+});
 
 
 /***********************

@@ -22,9 +22,6 @@
  * THE SOFTWARE. 
 */
 
-/// <reference path="Modules/Directions.d.ts"/>
-/// <reference path="Modules/DrawingTools.d.ts"/>
-
 /**
  *  The Bing Maps V8 developer API.
  */
@@ -433,9 +430,6 @@ declare module Microsoft.Maps {
         * This property can only be set when using the Map constructor.
         */
         showMapTypeSelector?: boolean;
-
-        /** Turns the map labels on or off. This property can only be set when using the Map constructor. */
-        showMapLabel?: boolean;
 
         /**
         * A boolean value indicating whether to show the scale bar. Default: true
@@ -1052,7 +1046,7 @@ declare module Microsoft.Maps {
     }
 
     /** A static class that manages events within the map SDK. */
-    export class Events {
+    export module Events {
         /////////////////////////////////////
         /// addHandler Definitions
         ////////////////////////////////////
@@ -1065,7 +1059,7 @@ declare module Microsoft.Maps {
          * @param handler The callback function to handle the event when triggered. 
          * @returns The handler id.
          */
-        public static addHandler(target: Map, eventName: string, handler: (eventArg?: IMouseEventArgs | IMapTypeChangeEventArgs) => void): IHandlerId;
+        export function  addHandler(target: Map, eventName: string, handler: (eventArg?: IMouseEventArgs | IMapTypeChangeEventArgs) => void): IHandlerId;
 
         /**
          * Attaches the handler for the event that is thrown by the target. Use the return object to remove the handler using the removeHandler method.
@@ -1075,7 +1069,7 @@ declare module Microsoft.Maps {
          * @param handler The callback function to handle the event when triggered. 
          * @returns The handler id.
          */
-        public static addHandler(target: Pushpin, eventName: string, handler: (eventArg?: IMouseEventArgs | IPrimitiveChangedEventArgs) => void): IHandlerId;
+        export function  addHandler(target: Pushpin, eventName: string, handler: (eventArg?: IMouseEventArgs | IPrimitiveChangedEventArgs) => void): IHandlerId;
 
         /**
         * Attaches the handler for the event that is thrown by the target. Use the return object to remove the handler using the removeHandler method.
@@ -1085,7 +1079,7 @@ declare module Microsoft.Maps {
         * @param handler The callback function to handle the event when triggered. 
         * @returns The handler id.
         */
-        public static addHandler(target: Polyline | Polygon, eventName: string, handler: (eventArg?: IMouseEventArgs | IPrimitiveChangedEventArgs) => void): IHandlerId;
+        export function  addHandler(target: Polyline | Polygon, eventName: string, handler: (eventArg?: IMouseEventArgs | IPrimitiveChangedEventArgs) => void): IHandlerId;
 
         /**
          * Attaches the handler for the event that is thrown by the target. Use the return object to remove the handler using the removeHandler method.
@@ -1095,7 +1089,7 @@ declare module Microsoft.Maps {
          * @param handler The callback function to handle the event when triggered. 
          * @returns The handler id.
          */
-        public static addHandler(target: Infobox, eventName: string, handler: (eventArg?: IInfoboxEventArgs) => void): IHandlerId;
+        export function  addHandler(target: Infobox, eventName: string, handler: (eventArg?: IInfoboxEventArgs) => void): IHandlerId;
 
         /**
          * Attaches the handler for the event that is thrown by the target. Use the return object to remove the handler using the removeHandler method.
@@ -1105,38 +1099,7 @@ declare module Microsoft.Maps {
          * @param handler The callback function to handle the event when triggered. 
          * @returns The handler id.
          */
-        public static addHandler(target: Layer, eventName: string, handler: (eventArg?: ILayerMouseEventArgs) => void): IHandlerId;
-
-        /**
-        * Attaches the handler for the event that is thrown by the target. Use the return object to remove the handler using the removeHandler method.
-        * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
-        * @param eventName The type of event to attach. Supported Events:
-        * drawingChanged, drawingChanging, drawingEnded, drawingModeChanged, drawingStarted
-        * @param handler The callback function to handle the event when triggered. 
-        * @returns The handler id.
-        */
-        public static addHandler(target: DrawingTools, eventName: string, handler: (eventArg?: IPrimitive | IDrawingModeChangedData) => void): IHandlerId;
-
-        /**
-        * Attaches the handler for the event that is thrown by the target. Use the return object to remove the handler using the removeHandler method.
-        * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
-        * @param eventName The type of event to attach. Supported Events:
-        * disposed, drawingChanged, drawingChanging, drawingEnded, drawingErased, drawingModeChanged, drawingStarted
-        * @param handler The callback function to handle the event when triggered. 
-        * @returns The handler id.
-        */
-        public static addHandler(target: DrawingManager, eventName: string, handler: (eventArg?: IPrimitive | DrawingTools.DrawingMode) => void): IHandlerId;
-
-        /**
-        * Attaches the handler for the event that is thrown by the target. Use the return object to remove the handler using the removeHandler method.
-        * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
-        * @param eventName The type of event to attach. Supported Events:
-        * • directionsError
-        * • directionsUpdated
-        * @param handler The callback function to handle the event when triggered. 
-        * @returns The handler id.
-        */
-        public static addHandler(target: Directions.DirectionsManager, eventName: string, handler: (eventArg?: Directions.IDirectionsEventArgs | Directions.IDirectionsErrorEventArgs) => void): IHandlerId;
+        export function  addHandler(target: Layer, eventName: string, handler: (eventArg?: ILayerMouseEventArgs) => void): IHandlerId;
 
         /**
         * Attaches the handler for the event that is thrown by the target. Use the return object to remove the handler using the removeHandler method.
@@ -1147,7 +1110,7 @@ declare module Microsoft.Maps {
         * @param handler The callback function to handle the event when triggered. 
         * @returns The handler id.
         */
-        public static addHandler(target: EntityCollection, eventName: string, handler: (eventArg?: IEntityCollectionChangedEventArgs) => void): IHandlerId;
+        export function  addHandler(target: EntityCollection, eventName: string, handler: (eventArg?: IEntityCollectionChangedEventArgs) => void): IHandlerId;
 
         /**
          * Attaches the handler for the event that is thrown by the target. Use the return object to remove the handler using the removeHandler method.
@@ -1156,7 +1119,7 @@ declare module Microsoft.Maps {
          * @param handler The callback function to handle the event when triggered. 
          * @returns The handler id.
          */
-        public static addHandler(target: any, eventName: string, handler: (eventArg?: any) => void): IHandlerId;
+        export function  addHandler(target: any, eventName: string, handler: (eventArg?: any) => void): IHandlerId;
 
         /////////////////////////////////////
         /// addOne Definitions
@@ -1169,7 +1132,7 @@ declare module Microsoft.Maps {
          * click, dblclick, maptypechanged, mousedown, mousemove, mouseout, mouseover, mouseup, mousewheel, rightclick, viewchange, viewchangeend, viewchangestart
          * @param handler The callback function to handle the event when triggered.
          */
-        public static addOne(target: Map, eventName: string, handler: (eventArg?: IMouseEventArgs | IMapTypeChangeEventArgs) => void): void;
+        export function  addOne(target: Map, eventName: string, handler: (eventArg?: IMouseEventArgs | IMapTypeChangeEventArgs) => void): void;
 
         /**
          * Attaches the handler for the event that is thrown by the target, but only triggers the handler the first once after being attached.
@@ -1178,7 +1141,7 @@ declare module Microsoft.Maps {
          * changed, click, dblclick, drag, dragend, dragstart, mousedown, mouseout, mouseover, mouseup
          * @param handler The callback function to handle the event when triggered.
          */
-        public static addOne(target: Pushpin, eventName: string, handler: (eventArg?: IMouseEventArgs | IPrimitiveChangedEventArgs) => void): void;
+        export function  addOne(target: Pushpin, eventName: string, handler: (eventArg?: IMouseEventArgs | IPrimitiveChangedEventArgs) => void): void;
 
         /**
          * Attaches the handler for the event that is thrown by the target, but only triggers the handler the first once after being attached.
@@ -1187,7 +1150,7 @@ declare module Microsoft.Maps {
          * changed, click, dblclick, mousedown, mouseout, mouseover, mouseup
          * @param handler The callback function to handle the event when triggered.
          */
-        public static addOne(target: Polyline | Polygon, eventName: string, handler: (eventArg?: IMouseEventArgs | IPrimitiveChangedEventArgs) => void): void;
+        export function  addOne(target: Polyline | Polygon, eventName: string, handler: (eventArg?: IMouseEventArgs | IPrimitiveChangedEventArgs) => void): void;
 
         /**
          * Attaches the handler for the event that is thrown by the target, but only triggers the handler the first once after being attached.
@@ -1196,7 +1159,7 @@ declare module Microsoft.Maps {
          * click, infoboxChanged, mouseenter, mouseleave
          * @param handler The callback function to handle the event when triggered. 
          */
-        public static addOne(target: Infobox, eventName: string, handler: (eventArg?: IInfoboxEventArgs) => void): void;
+        export function  addOne(target: Infobox, eventName: string, handler: (eventArg?: IInfoboxEventArgs) => void): void;
 
         /**
          * Attaches the handler for the event that is thrown by the target, but only triggers the handler the first once after being attached.
@@ -1205,35 +1168,7 @@ declare module Microsoft.Maps {
          * click, dblclick, mousedown, mouseout, mouseover, mouseup, rightclick
          * @param handler The callback function to handle the event when triggered.
          */
-        public static addOne(target: Layer, eventName: string, handler: (eventArg?: ILayerMouseEventArgs) => void): void;
-
-        /**
-        * Attaches the handler for the event that is thrown by the target, but only triggers the handler the first once after being attached.
-        * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
-        * @param eventName The type of event to attach. Supported Events:
-        * drawingChanged, drawingChanging, drawingEnded, drawingModeChanged, drawingStarted
-        * @param handler The callback function to handle the event when triggered. 
-        */
-        public static addOne(target: DrawingTools, eventName: string, handler: (eventArg?: IPrimitive | IDrawingModeChangedData) => void): void;
-
-        /**
-         * Attaches the handler for the event that is thrown by the target, but only triggers the handler the first once after being attached.
-         * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
-         * @param eventName The type of event to attach. Supported Events:
-         * disposed, drawingChanged, drawingChanging, drawingEnded, drawingErased, drawingModeChanged, drawingStarted
-         * @param handler The callback function to handle the event when triggered.
-         */
-        public static addOne(target: DrawingManager, eventName: string, handler: (eventArg?: IPrimitive | DrawingTools.DrawingMode) => void): void;
-
-        /**
-         * Attaches the handler for the event that is thrown by the target, but only triggers the handler the first once after being attached.
-         * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
-         * @param eventName The type of event to attach. Supported Events:
-         * • directionsError
-         * • directionsUpdated
-         * @param handler The callback function to handle the event when triggered.
-         */
-        public static addOne(target: Directions.DirectionsManager, eventName: string, handler: (eventArg?: Directions.IDirectionsEventArgs | Directions.IDirectionsErrorEventArgs) => void): void;
+        export function  addOne(target: Layer, eventName: string, handler: (eventArg?: ILayerMouseEventArgs) => void): void;
 
         /**
          * Attaches the handler for the event that is thrown by the target, but only triggers the handler the first once after being attached.
@@ -1243,7 +1178,7 @@ declare module Microsoft.Maps {
          * • entityremoved
          * @param handler The callback function to handle the event when triggered.
          */
-        public static addOne(target: EntityCollection, eventName: string, handler: (eventArg?: IEntityCollectionChangedEventArgs) => void): void;
+        export function  addOne(target: EntityCollection, eventName: string, handler: (eventArg?: IEntityCollectionChangedEventArgs) => void): void;
 
         /**
          * Attaches the handler for the event that is thrown by the target, but only triggers the handler the first once after being attached.
@@ -1251,7 +1186,7 @@ declare module Microsoft.Maps {
          * @param eventName The type of event to attach.
          * @param handler The callback function to handle the event when triggered.
          */
-        public static addOne(target: any, eventName: string, handler: (eventArg?: any) => void): void;
+        export function  addOne(target: any, eventName: string, handler: (eventArg?: any) => void): void;
 
         /////////////////////////////////////
         /// addThrottledHandler Definitions
@@ -1266,7 +1201,7 @@ declare module Microsoft.Maps {
          * @param throttleInterval throttle interval (in ms)
          * @returns The handler id.
          */
-        public static addThrottledHandler(target: Map, eventName: string, handler: (eventArg?: IMouseEventArgs | IMapTypeChangeEventArgs) => void, throttleInterval: number): IHandlerId;
+        export function  addThrottledHandler(target: Map, eventName: string, handler: (eventArg?: IMouseEventArgs | IMapTypeChangeEventArgs) => void, throttleInterval: number): IHandlerId;
 
         /**
          * Attaches the handler for the event that is thrown by the target, where the minimum interval between events (in milliseconds) is specified as a parameter.
@@ -1277,7 +1212,7 @@ declare module Microsoft.Maps {
          * @param throttleInterval throttle interval (in ms)
          * @returns The handler id.
          */
-        public static addThrottledHandler(target: Pushpin, eventName: string, handler: (eventArg?: IMouseEventArgs | IPrimitiveChangedEventArgs) => void, throttleInterval: number): IHandlerId;
+        export function  addThrottledHandler(target: Pushpin, eventName: string, handler: (eventArg?: IMouseEventArgs | IPrimitiveChangedEventArgs) => void, throttleInterval: number): IHandlerId;
 
         /**
          * Attaches the handler for the event that is thrown by the target, where the minimum interval between events (in milliseconds) is specified as a parameter.
@@ -1288,7 +1223,7 @@ declare module Microsoft.Maps {
          * @param throttleInterval throttle interval (in ms)
          * @returns The handler id.
          */
-        public static addThrottledHandler(target: Polyline | Polygon, eventName: string, handler: (eventArg?: IMouseEventArgs | IPrimitiveChangedEventArgs) => void, throttleInterval: number): IHandlerId;
+        export function  addThrottledHandler(target: Polyline | Polygon, eventName: string, handler: (eventArg?: IMouseEventArgs | IPrimitiveChangedEventArgs) => void, throttleInterval: number): IHandlerId;
 
         /**
         * Attaches the handler for the event that is thrown by the target, where the minimum interval between events (in milliseconds) is specified as a parameter.
@@ -1298,7 +1233,7 @@ declare module Microsoft.Maps {
         * @param handler The callback function to handle the event when triggered. 
         * @returns The handler id.
         */
-        public static addThrottledHandler(target: Infobox, eventName: string, handler: (eventArg?: IInfoboxEventArgs) => void): IHandlerId;
+        export function  addThrottledHandler(target: Infobox, eventName: string, handler: (eventArg?: IInfoboxEventArgs) => void): IHandlerId;
 
         /**
          * Attaches the handler for the event that is thrown by the target, where the minimum interval between events (in milliseconds) is specified as a parameter.
@@ -1309,40 +1244,7 @@ declare module Microsoft.Maps {
          * @param throttleInterval throttle interval (in ms)
          * @returns The handler id.
          */
-        public static addThrottledHandler(target: Layer, eventName: string, handler: (eventArg?: ILayerMouseEventArgs) => void, throttleInterval: number): IHandlerId;
-
-        /**
-        * Attaches the handler for the event that is thrown by the target, where the minimum interval between events (in milliseconds) is specified as a parameter.
-        * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
-        * @param eventName The type of event to attach. Supported Events:
-        * drawingChanged, drawingChanging, drawingEnded, drawingModeChanged, drawingStarted
-        * @param handler The callback function to handle the event when triggered. 
-        * @returns The handler id.
-        */
-        public static addThrottledHandler(target: DrawingTools, eventName: string, handler: (eventArg?: IPrimitive | IDrawingModeChangedData) => void): IHandlerId;
-
-        /**
-         * Attaches the handler for the event that is thrown by the target, where the minimum interval between events (in milliseconds) is specified as a parameter.
-         * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
-         * @param eventName The type of event to attach. Supported Events:
-         * disposed, drawingChanged, drawingChanging, drawingEnded, drawingErased, drawingModeChanged, drawingStarted
-         * @param handler The callback function to handle the event when triggered.
-         * @param throttleInterval throttle interval (in ms)
-         * @returns The handler id.
-         */
-        public static addThrottledHandler(target: DrawingManager, eventName: string, handler: (eventArg?: IPrimitive | DrawingTools.DrawingMode) => void, throttleInterval: number): IHandlerId;
-
-        /**
-         * Attaches the handler for the event that is thrown by the target, where the minimum interval between events (in milliseconds) is specified as a parameter.
-         * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
-         * @param eventName The type of event to attach. Supported Events:
-         * • directionsError
-         * • directionsUpdated
-         * @param handler The callback function to handle the event when triggered.
-         * @param throttleInterval throttle interval (in ms)
-         * @returns The handler id.
-         */
-        public static addThrottledHandler(target: Directions.DirectionsManager, eventName: string, handler: (eventArg?: Directions.IDirectionsEventArgs | Directions.IDirectionsErrorEventArgs) => void, throttleInterval: number): IHandlerId;
+        export function  addThrottledHandler(target: Layer, eventName: string, handler: (eventArg?: ILayerMouseEventArgs) => void, throttleInterval: number): IHandlerId;
 
         /**
          * Attaches the handler for the event that is thrown by the target, where the minimum interval between events (in milliseconds) is specified as a parameter.
@@ -1354,7 +1256,7 @@ declare module Microsoft.Maps {
          * @param throttleInterval throttle interval (in ms)
          * @returns The handler id.
          */
-        public static addThrottledHandler(target: EntityCollection, eventName: string, handler: (eventArg?: IEntityCollectionChangedEventArgs) => void, throttleInterval: number): IHandlerId;
+        export function  addThrottledHandler(target: EntityCollection, eventName: string, handler: (eventArg?: IEntityCollectionChangedEventArgs) => void, throttleInterval: number): IHandlerId;
 
         /**
          * Attaches the handler for the event that is thrown by the target, where the minimum interval between events (in milliseconds) is specified as a parameter.
@@ -1364,7 +1266,7 @@ declare module Microsoft.Maps {
          * @param throttleInterval throttle interval (in ms)
          * @returns The handler id.
          */
-        public static addThrottledHandler(target: any, eventName: string, handler: (eventArg?: any) => void, throttleInterval: number): IHandlerId;
+        export function  addThrottledHandler(target: any, eventName: string, handler: (eventArg?: any) => void, throttleInterval: number): IHandlerId;
 
         /////////////////////////////////////
         /// All other definitions
@@ -1376,7 +1278,7 @@ declare module Microsoft.Maps {
          * @param eventName The name of the event to check to see is attached.
          * @returns A boolean indicating if the specified event type is attached to the object.
          */
-        public static hasHandler(target: any, eventName: string): boolean;
+        export function  hasHandler(target: any, eventName: string): boolean;
 
         /**
          * Invokes an event on the target. This causes all handlers for the specified event name to be called.
@@ -1384,13 +1286,13 @@ declare module Microsoft.Maps {
          * @param eventName The name of the event to invoke.
          * @param args Arguments for the event handler.
          */
-        public static invoke(target: any, evenName: string, args: any): void;
+        export function  invoke(target: any, evenName: string, args: any): void;
 
         /**
          * Detaches the specified handler from the event. The handlerId is returned by the addHandler and addThrottledHandler methods.
          * @param handlerId The handler id of the event to remove.
          */
-        public static removeHandler(handlerId: IHandlerId): void;
+        export function  removeHandler(handlerId: IHandlerId): void;
     }
 
     /**

@@ -565,3 +565,52 @@ declare module Microsoft.Maps.Directions {
         public showInputPanel(inputContainerId: string): void;        
     }
 }
+
+declare module Microsoft.Maps {
+    /** A static class that manages events within the map SDK. */
+    module Events {
+        /////////////////////////////////////
+        /// addHandler Definitions
+        ////////////////////////////////////
+
+        /**
+        * Attaches the handler for the event that is thrown by the target. Use the return object to remove the handler using the removeHandler method.
+        * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
+        * @param eventName The type of event to attach. Supported Events:
+        * • directionsError
+        * • directionsUpdated
+        * @param handler The callback function to handle the event when triggered. 
+        * @returns The handler id.
+        */
+        export function addHandler(target: Directions.DirectionsManager, eventName: string, handler: (eventArg?: Directions.IDirectionsEventArgs | Directions.IDirectionsErrorEventArgs) => void): IHandlerId;
+
+        /////////////////////////////////////
+        /// addOne Definitions
+        ////////////////////////////////////
+
+        /**
+         * Attaches the handler for the event that is thrown by the target, but only triggers the handler the first once after being attached.
+         * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
+         * @param eventName The type of event to attach. Supported Events:
+         * • directionsError
+         * • directionsUpdated
+         * @param handler The callback function to handle the event when triggered.
+         */
+        export function addOne(target: Directions.DirectionsManager, eventName: string, handler: (eventArg?: Directions.IDirectionsEventArgs | Directions.IDirectionsErrorEventArgs) => void): void;
+
+        /////////////////////////////////////
+        /// addThrottledHandler Definitions
+        ////////////////////////////////////
+
+        /**
+         * Attaches the handler for the event that is thrown by the target, where the minimum interval between events (in milliseconds) is specified as a parameter.
+         * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
+         * @param eventName The type of event to attach. Supported Events:
+         * • directionsError
+         * • directionsUpdated
+         * @param handler The callback function to handle the event when triggered.
+         * @param throttleInterval throttle interval (in ms)
+         * @returns The handler id.
+         */
+        export function addThrottledHandler(target: Directions.DirectionsManager, eventName: string, handler: (eventArg?: Directions.IDirectionsEventArgs | Directions.IDirectionsErrorEventArgs) => void, throttleInterval: number): IHandlerId;
+}
