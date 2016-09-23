@@ -613,4 +613,5 @@ declare module Microsoft.Maps {
          * @returns The handler id.
          */
         export function addThrottledHandler(target: Directions.DirectionsManager, eventName: string, handler: (eventArg?: Directions.IDirectionsEventArgs | Directions.IDirectionsErrorEventArgs) => void, throttleInterval: number): IHandlerId;
+    }
 }
