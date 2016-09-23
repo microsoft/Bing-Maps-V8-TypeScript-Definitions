@@ -1,6 +1,6 @@
 {
   "name": "bingmaps",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "These are the official TypeScript definitions for the Bing Maps V8 SDK. These can be used to provide intellisense and rich error detection to your IDE.",
   "typings": "index.d.ts",
   "repository": {
