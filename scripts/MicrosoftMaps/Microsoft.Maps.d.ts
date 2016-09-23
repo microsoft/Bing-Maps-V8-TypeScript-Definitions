@@ -196,7 +196,7 @@ declare module Microsoft.Maps {
         * Specifies if the custom overlay should eb rendered above or below the label layer of the map. When above,
         * elements in the overlay can be clickable. Default: True
         */
-        beneathLabels: boolean;
+        beneathLabels?: boolean;
     }
 
     /** Base data layer interface. */
