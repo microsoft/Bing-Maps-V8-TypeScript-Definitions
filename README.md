@@ -51,6 +51,8 @@ or you can add a reference to the individual module definitions.
 |---------------------------------------------------------------------------------|----------------------------------------------------------|
 | [Autosuggest](https://msdn.microsoft.com/en-us/library/mt712650.aspx)           | scripts/MicrosoftMaps/Modules/Autosuggest.d.ts           |
 | [Clustering](https://msdn.microsoft.com/en-us/library/mt712807.aspx)            | scripts/MicrosoftMaps/Modules/Clustering.d.ts            |
+| [Contour](https://msdn.microsoft.com/en-us/library/mt786479.aspx) | scripts/MicrosoftMaps/Modules/Contour.d.ts |
+| [Data Binning](https://msdn.microsoft.com/en-us/library/mt743067.aspx) | scripts/MicrosoftMaps/Modules/DataBinning.d.ts |
 | [Directions](https://msdn.microsoft.com/en-US/library/mt748655.aspx)            | scripts/MicrosoftMaps/Modules/Directions.d.ts            |
 | [Drawing Tools](https://msdn.microsoft.com/en-us/library/mt750543.aspx)         | scripts/MicrosoftMaps/Modules/DrawingTools.d.ts          |
 | [GeoJson](https://msdn.microsoft.com/en-us/library/mt712806.aspx)               | scripts/MicrosoftMaps/Modules/GeoJson.d.ts               |
