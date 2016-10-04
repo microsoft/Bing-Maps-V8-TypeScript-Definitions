@@ -370,6 +370,15 @@ declare module Microsoft.Maps.SpatialMath.Geometry {
     export function concaveHull(shapes: Location | IPrimitive | (Location | IPrimitive)[], allowMultiPolygons?: boolean, allowHoles?: boolean, options?: IPolygonOptions): IPrimitive | IPrimitive[];
 
     /**
+     * Given two shapes, determines if the first one contains the second one 
+     * (or, the second shape is a subset of the first shape) or not.
+     * @param shapeA The first shape to test against the second.
+     * @param shapeB The second shape to test against the first.
+     * @returns A boolean indicating if the first shape contains the second shape.
+     */
+    export function contains(shapeA: Location | IPrimitive | (Location | IPrimitive)[], shapeB: Location | IPrimitive | (Location | IPrimitive)[]): boolean;
+
+    /**
      * Calculates a convex hull. A convex hull is a shape that represents that minimum convex geometry that encloses all shapes in the specified data set.
      * @param shapes Shape(s) whose Location(s) or Location(s) are to be used to generate a convex hull.
      * @param options A set of polygon options to apply to the generated shape.

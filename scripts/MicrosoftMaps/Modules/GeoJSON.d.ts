@@ -64,12 +64,12 @@ declare module Microsoft.Maps {
 
     /**
      * Class responsible for reading/writing geo data in GeoJson format
-     * @requires The Microsoft.Maps.GeoJSON module.
+     * @requires The Microsoft.Maps.GeoJson module.
      */
-    export module GeoJSON {
+    export module GeoJson {
        /**
        * Reads the data from a given url and returns the shapes.
-       * @param url GeojJSON download url.
+       * @param url GeoJson download url.
        * @param callback Callback function that needs to be called once the data is downloaded and parsed.
        * @param jsonpQueryParam The name of the url query param to make a jsonp request.
        * @param styles Styles that needs to be applied.
@@ -78,7 +78,7 @@ declare module Microsoft.Maps {
 
         /**
          * Reads the data in geoJson format and returns the shapes.
-         * @param geoJson GeoJSON data object that needs to be parsed into shapes.
+         * @param geoJson GeoJson data object that needs to be parsed into shapes.
          * @param styles Styles that needs to be applied.
          * @returns An array of shapes.
          */

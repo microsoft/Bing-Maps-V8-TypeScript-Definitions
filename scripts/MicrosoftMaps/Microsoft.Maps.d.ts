@@ -741,7 +741,7 @@ declare module Microsoft.Maps {
         * Besides using formatted tile URLs, you can also specify a callback function as the uriConstructor. This is useful if you need to be able to
         * build custom tile URL’s that may require some additional calculations for a tile.
         */
-        uriConstructor: string | ((tile: PyramidTileId) => void);
+        uriConstructor: string | ((tile: PyramidTileId) => string);
     }
 
     /** Represents options that can be used to set the view of the map. */

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Microsoft.BingMaps.V8.TypeScript</id>
-        <version>1.0.11</version>
+        <version>1.0.12</version>
         <title>Bing Maps V8 TypeScript Definitions</title>
         <authors>Microsoft</authors>
         <owners>microsoft bingmaps</owners>
@@ -20,9 +20,11 @@
     <files>
         <file src="..\scripts\MicrosoftMaps\Modules\Autosuggest.d.ts" target="content\scripts\MicrosoftMaps\Modules\Autosuggest.d.ts" />
         <file src="..\scripts\MicrosoftMaps\Modules\Clustering.d.ts" target="content\scripts\MicrosoftMaps\Modules\Clustering.d.ts" />
+        <file src="..\scripts\MicrosoftMaps\Modules\Contour.d.ts" target="content\scripts\MicrosoftMaps\Modules\Contour.d.ts" />
+        <file src="..\scripts\MicrosoftMaps\Modules\DataBinning.d.ts" target="content\scripts\MicrosoftMaps\Modules\DataBinning.d.ts" />
         <file src="..\scripts\MicrosoftMaps\Modules\Directions.d.ts" target="content\scripts\MicrosoftMaps\Modules\Directions.d.ts" />
         <file src="..\scripts\MicrosoftMaps\Modules\DrawingTools.d.ts" target="content\scripts\MicrosoftMaps\Modules\DrawingTools.d.ts" />
-        <file src="..\scripts\MicrosoftMaps\Modules\GeoJSON.d.ts" target="content\scripts\MicrosoftMaps\Modules\GeoJSON.d.ts" />
+        <file src="..\scripts\MicrosoftMaps\Modules\GeoJson.d.ts" target="content\scripts\MicrosoftMaps\Modules\GeoJson.d.ts" />
         <file src="..\scripts\MicrosoftMaps\Modules\HeatMapLayer.d.ts" target="content\scripts\MicrosoftMaps\Modules\HeatMapLayer.d.ts" />
         <file src="..\scripts\MicrosoftMaps\Modules\Search.d.ts" target="content\scripts\MicrosoftMaps\Modules\Search.d.ts" />
         <file src="..\scripts\MicrosoftMaps\Modules\SpatialDataService.d.ts" target="content\scripts\MicrosoftMaps\Modules\SpatialDataService.d.ts" />

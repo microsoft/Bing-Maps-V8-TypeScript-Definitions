@@ -24,8 +24,8 @@ layer.add(pin);
 
 map.layers.insert(layer);
 
-Microsoft.Maps.loadModule('Microsoft.Maps.GeoJSON', () => {
-    Microsoft.Maps.GeoJSON.readFromUrl('URL to file', (data) => {
+Microsoft.Maps.loadModule('Microsoft.Maps.GeoJson', () => {
+    Microsoft.Maps.GeoJson.readFromUrl('URL to file', (data) => {
         if (data instanceof Array) {
             //Data is an array of shapes.
         } else {
@@ -80,6 +80,17 @@ Microsoft.Maps.loadModule('Microsoft.Maps.Directions', () => {
 
     });
     directionsManager.calculateDirections();
+});
+
+Microsoft.Maps.loadModule('Microsoft.Maps.DataBinning', () => {
+    var dataBinLayer = new Microsoft.Maps.DataBinningLayer();
+    dataBinLayer.setPushpins(<Microsoft.Maps.Pushpin[]>Microsoft.Maps.TestDataGenerator.getPushpins(100));
+    dataBinLayer.setOptions({
+        scaleCallback: (info, min, max) => {
+            return info.metrics.count / max.count;
+        }
+    });
+    map.layers.insert(dataBinLayer);
 });
 
 
