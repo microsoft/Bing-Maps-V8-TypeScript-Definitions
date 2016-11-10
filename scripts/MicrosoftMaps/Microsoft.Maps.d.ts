@@ -243,8 +243,7 @@ declare module Microsoft.Maps {
     /** The options that can be used to customize an infobox. */
     export interface IInfoboxOptions {
         /**
-        * A list of the infobox actions, where each item is a label (the link text) or icon (the URL of the image to use as the icon link) and eventHandler
-        * (name of the function handling a click of the action link). Note that this is not supported when using htmlContent, use HTML anchors instead.
+        * @deprecated Use HTML buttons and links in description instead.
         */
         actions?: IInfoboxActions[];
 
@@ -299,7 +298,9 @@ declare module Microsoft.Maps {
         zIndex?: number;
     }
 
-    /**  An object used to define a clickable action on an infobox. */
+    /**
+    * @deprecated Use HTML buttons and links in description instead.
+    */
     export interface IInfoboxActions {
         /** The text to display for the action. */
         label: string;
@@ -345,7 +346,10 @@ declare module Microsoft.Maps {
         allowHidingLabelsOfRoad?: boolean;
 
         /** The color to use for the map control background. The default color is #EAE8E1. This property can only be set when using the Map constructor. */
-        backgroundColor?: string | Color;        
+        backgroundColor?: string | Color;   
+
+        /** A boolean value indicating whether to disable the user’s ability to change the map type through the keyboard. Default: false */
+        disableMapTypeKeyboardInput?: boolean;
 
         /** A boolean value indicating whether to disable the user's ability to pan the map. Default: false */
         disablePanning?: boolean;
@@ -385,6 +389,16 @@ declare module Microsoft.Maps {
         * This property can only be set when using the Map constructor.
         */
         enableInertia?: boolean;
+
+        /**
+        * A boolean that indicates if the map should be rendered using lite mode. When set to true vector map labels are
+        * disabled and map labels are rendered directly into the map tiles. This offers improved performance, but will result
+        * in the labels being rendered behind data on the map and the labels will also not use collision dection with pushpins.
+        * If this property is not set, the map set this value based on the target device and browser as vector labels perform
+        * better in some scenrarios than others.
+        * This property can only be set when using the Map constructor.
+        */
+        liteMode?: boolean;
 
         /** A bounding area that restricts the map view. */
         maxBounds?: LocationRect;
@@ -436,6 +450,9 @@ declare module Microsoft.Maps {
         * This property can only be set when using the Map constructor.
         */
         showScalebar?: boolean;
+
+        /** When using the minified navigation bar, a traffic button is displayed. Setting this option to false will hide this button. */
+        showTrafficButton?: boolean;
 
         /**
         * A boolean value indicating whether to show a link to the End User Terms of Use, which appears to the right of the copyrights, or not. Default: true
@@ -1309,10 +1326,7 @@ declare module Microsoft.Maps {
         constructor(location: Location, options?: IInfoboxOptions);
 
         /**
-        * Gets a list of the infobox actions, where each item is a label (the link text) or icon (the URL of the image to use as the icon link)
-        * and eventHandler (name of the function handling a click of the action link). Note that this is not supported when using htmlContent,
-        * use HTML anchors instead.
-        * @returns
+        * @deprecated Use HTML buttons and links in description instead.
         */
         public getActions(): IInfoboxActions[];
 
@@ -2319,7 +2333,7 @@ declare module Microsoft.Maps {
         public pixelWidth: number;
 
         /** The quadkey ID of the tile. */
-        public quadkey: string;
+        public quadKey: string;
 
         /** The x tile coordinate. */
         public x: number;

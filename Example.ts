@@ -4,6 +4,13 @@ var map = new Microsoft.Maps.Map('#MyMap', {
     credentials: 'Your Bing Maps Key'    
 });
 
+
+var pushpins = <Microsoft.Maps.Pushpin[]>Microsoft.Maps.TestDataGenerator.getPushpins(10, this.map.getBounds());
+var infobox = new Microsoft.Maps.Infobox(pushpins[0].getLocation(), { visible: false });
+infobox.setMap(map);
+for (var i = 0; i < pushpins.length; i++) { }
+
+
 Microsoft.Maps.Events.addHandler(map, 'click', (e: Microsoft.Maps.IMouseEventArgs) => {
     //The location on the map that the user clicked.
     var loc = e.location;
