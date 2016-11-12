@@ -202,7 +202,7 @@ declare module Microsoft.Maps {
     /** Base data layer interface. */
     export interface IDataLayer extends ILayer {
         /** Clears all data in the layer. */
-        clear(): void;
+        clear(): void;	
     }
 
     /** Event args included in entity collection events. */
@@ -224,20 +224,8 @@ declare module Microsoft.Maps {
 
     /** A LayerMouseEventArgs object is returned by many the mouse event handlers attached to a Layer. */
     export interface ILayerMouseEventArgs {
-        /** The Layer object the event was attached to. */
-        layer: Layer;
-
-        /** The map location of where the event occurred. */
-        location: Location;
-
-        /** The pixel coordinate of the mouse cursor relative to the top left corner of the map div. */
-        point: Point;
-
         /** The IPrimitive shape (pushpin, polyline, polygon) that the event occurred on. */
         primitive: IPrimitive;
-
-        /** The object type that is attached to the event. This will always be “layer” and is useful when using a single event handlers to handle events that are to a Layer or individual shapes. */
-        targeType: string;
     }
 
     /** The options that can be used to customize an infobox. */
@@ -498,7 +486,7 @@ declare module Microsoft.Maps {
     }
 
     /** A MouseEventArgs object is returned by many the mouse event handlers. */
-    export interface IMouseEventArgs {
+    export interface IMouseEventArgs extends ILayerMouseEventArgs {
         /** The event that occurred. */
         eventName: string;
 
@@ -1116,7 +1104,7 @@ declare module Microsoft.Maps {
          * @param handler The callback function to handle the event when triggered. 
          * @returns The handler id.
          */
-        export function  addHandler(target: Layer, eventName: string, handler: (eventArg?: ILayerMouseEventArgs) => void): IHandlerId;
+        export function  addHandler(target: Layer, eventName: string, handler: (eventArg?: IMouseEventArgs) => void): IHandlerId;
 
         /**
         * Attaches the handler for the event that is thrown by the target. Use the return object to remove the handler using the removeHandler method.
@@ -1185,7 +1173,7 @@ declare module Microsoft.Maps {
          * click, dblclick, mousedown, mouseout, mouseover, mouseup, rightclick
          * @param handler The callback function to handle the event when triggered.
          */
-        export function  addOne(target: Layer, eventName: string, handler: (eventArg?: ILayerMouseEventArgs) => void): void;
+        export function  addOne(target: Layer, eventName: string, handler: (eventArg?: IMouseEventArgs) => void): void;
 
         /**
          * Attaches the handler for the event that is thrown by the target, but only triggers the handler the first once after being attached.
@@ -1261,7 +1249,7 @@ declare module Microsoft.Maps {
          * @param throttleInterval throttle interval (in ms)
          * @returns The handler id.
          */
-        export function  addThrottledHandler(target: Layer, eventName: string, handler: (eventArg?: ILayerMouseEventArgs) => void, throttleInterval: number): IHandlerId;
+        export function  addThrottledHandler(target: Layer, eventName: string, handler: (eventArg?: IMouseEventArgs) => void, throttleInterval: number): IHandlerId;
 
         /**
          * Attaches the handler for the event that is thrown by the target, where the minimum interval between events (in milliseconds) is specified as a parameter.
