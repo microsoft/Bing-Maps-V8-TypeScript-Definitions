@@ -502,10 +502,10 @@ declare module Microsoft.Maps {
         /** The pixel coordinate of the mouse cusrsor relative to the top left corner of the map div. */
         point: Point;
 
-        /** The object that fired the event. */
+        /** The object that triggered the event. */
         target: Map | IPrimitive;
 
-        /** The type of the object that fired the event. Valid values include the following: ‘map’, ‘polygon’, ‘polyline’, or ‘pushpin’ */
+        /** The type of the object that the event is attached to. Valid values include the following: ‘map’, 'layer', ‘polygon’, ‘polyline’, or ‘pushpin’ */
         targetType: string;
 
         /**
