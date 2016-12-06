@@ -1,4 +1,4 @@
-﻿# Contributing to generator-docker
+﻿# Contributing to the Bing Maps V8 TypeScript Definitions
 
 ## Code of Conduct
 
