@@ -12,7 +12,7 @@ These are the official TypeScript definitions for the [Bing Maps V8 Web Control]
 
 Using the [Bing Maps V8 TypeScript Definitions NuGet package](https://www.nuget.org/packages/Microsoft.BingMaps.V8.TypeScript/) will make it easy to both add the definitions to your project and to also keep them up to date. 
 
-If using Visual Studio, oepn the nuget package manager, select the Browse tab and seearch for "Bing Maps V8". This should reduce the list of results enough to fine the "Bing Maps V8 TypeScript Defintions" package. The owner of the package is bingmaps.
+If using Visual Studio, open the nuget package manager, select the Browse tab and search for "Bing Maps V8". This should reduce the list of results enough to fine the "Bing Maps V8 TypeScript Defintions" package. The owner of the package is bingmaps.
 
 Alternatively, if you are using the nuget commandline:
 
