@@ -1,5 +1,9 @@
 ![Bing Maps Logo](images/BingMapsLogoTeal.png) 
 
+[![NuGet](https://img.shields.io/badge/NuGet-1.0.12-blue.svg)](https://www.nuget.org/packages/Microsoft.BingMaps.V8.TypeScript/)
+[![npm](https://img.shields.io/badge/npm-1.0.12-red.svg)](https://www.npmjs.com/package/bingmaps)
+[![license](https://img.shields.io/badge/license-MIT%20License-yellow.svg)](https://github.com/Microsoft/Bing-Maps-V8-TypeScript-Definitions/blob/master/LICENSE.md)
+
 #Bing Maps V8 TypeScript Definitions
 
 These are the official TypeScript definitions for the [Bing Maps V8 Web Control](https://msdn.microsoft.com/en-US/library/mt712542.aspx). These can be used to provide intellisense and richer error catching functionality to your IDE.
