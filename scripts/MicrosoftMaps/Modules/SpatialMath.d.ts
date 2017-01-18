@@ -107,6 +107,16 @@ declare module Microsoft.Maps.SpatialMath {
      **/
     export function convertDistance(distance: number, fromUnits: DistanceUnits, toUnits: DistanceUnits): number;
 
+     /**
+     * Calculates an array of locations that form a cardinal spline between the specified array of locations.
+     * @param locations The array of locations to calculate the spline through.
+     * @param tension A number that indicates the tightness of the curve. Can be any number, although a value between 0 and 1 is usually used. Default: 0.5
+     * @param nodeSize Number of nodes to insert between each Location. Default: 15
+     * @param close A boolean indicating if the spline should be a closed ring or not. Default: false
+     * @returns An array of locations that form a cardinal spline between the specified array of locations.
+     */
+    export function getCardinalSpline(locations: Location[], tension ?: number, nodeSize ?: number, close ?: boolean): Location[];
+
     /**
      * Calculates a destination Location based on a starting Location, a heading, a distance, and a distance unit type.
      * @param origin Location that the destination is relative to.

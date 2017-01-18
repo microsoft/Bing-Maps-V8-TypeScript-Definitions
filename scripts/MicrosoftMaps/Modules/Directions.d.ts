@@ -257,6 +257,9 @@ declare module Microsoft.Maps.Directions {
     export interface IRoute {
         /** The legs of the route. Each route leg represents the route between two waypoints. */
         routeLegs: IRouteLeg[];
+
+        /** An array of locations that makes up the path of the route. */
+        routePath: Location[];
     }
 
     /** Represents a leg of a route. A route leg is the part of the route between two stop waypoints. */

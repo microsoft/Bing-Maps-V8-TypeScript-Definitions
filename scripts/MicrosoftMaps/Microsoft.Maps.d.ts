@@ -222,9 +222,15 @@ declare module Microsoft.Maps {
     export interface ILayer {
     }
 
-    /** A LayerMouseEventArgs object is returned by many the mouse event handlers attached to a Layer. */
+    /** 
+     * @deprecated use IMouseEventArgs
+	 * A LayerMouseEventArgs object is returned by many the mouse event handlers attached to a Layer. 
+	 */
     export interface ILayerMouseEventArgs {
-        /** The IPrimitive shape (pushpin, polyline, polygon) that the event occurred on. */
+        /** 
+		* @deprecated use target
+		* The IPrimitive shape (pushpin, polyline, polygon) that the event occurred on. 
+		*/
         primitive: IPrimitive;
     }
 
@@ -489,6 +495,9 @@ declare module Microsoft.Maps {
     export interface IMouseEventArgs extends ILayerMouseEventArgs {
         /** The event that occurred. */
         eventName: string;
+		
+		/** If the target is a shape, this will be the layer that the shape is in. */
+		layer: Layer;
 
         /** The map location of where the event occurred. */
         location: Location;
