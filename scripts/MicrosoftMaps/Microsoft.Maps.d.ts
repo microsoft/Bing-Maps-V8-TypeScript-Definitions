@@ -716,7 +716,7 @@ declare module Microsoft.Maps {
         * The number of milliseconds allowed for the tile layer image download. If the timeout occurs before the image is fully
         * downloaded, the map control considers the download a failure. The default value is 10000.
         */
-        downloadTimeOut?: number;
+        downloadTimeout?: number;
 
         /** The tile source for the tile layer. */
         mercator: TileSource;
