@@ -77,9 +77,15 @@ The following shows the intellisense for adding modules. A list of the supported
 
 ![Bing Maps V8 Load Module Intellisense](images/V8LoadModuleIntellisense.gif "Bing Maps V8 Load Module Intellisense")
 
+<<<<<<< HEAD
 ## Q & A ##
 
 - **Q: When will new Bing Maps features be added to these definitions.**
+=======
+## Q & A
+
+- **Q: When will new Bing Maps features be added to these defintions.**
+>>>>>>> origin/master
   - **A:** New features will be added to the definitions when they have graduated out of the experimental branch and into the main release branch of V8. This will often be done in parallel with MSDN documentation updates. A list of new features can be found in the release notes [here](https://msdn.microsoft.com/en-US/library/mt770019.aspx).
 
 ## Contributing ##
@@ -92,16 +98,23 @@ You can reach out to us anytime with questions and suggestions using our communi
 
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information, see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
+<<<<<<< HEAD
 ## License ##
 
 MIT
  
 See [License](LICENSE.md) for full license text.
 
+=======
+>>>>>>> origin/master
 ## Additional Resources ##
 
 * [Bing Maps V8 Interactive Code Samples](http://www.bing.com/api/maps/sdk/mapcontrol/isdk)
 * [Bing Maps V8 MSDN Documentation](https://msdn.microsoft.com/en-us/library/mt712542.aspx)
 * [Bing Maps Blog](http://blogs.bing.com/maps)
 * [Bing Maps forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=bingmapsajax&filter=alltypes&sort=lastpostdesc)
+<<<<<<< HEAD
 * [Bing Maps for Enterprise site](https://www.microsoft.com/maps/)
+=======
+* [Bing Maps for Enterpise site](https://www.microsoft.com/maps/)
+>>>>>>> origin/master
