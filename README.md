@@ -98,6 +98,10 @@ MIT
  
 See [License](LICENSE.md) for full license text.
 
+## Related Projects ##
+
+* [Bing Maps V8 Code Samples](https://github.com/Microsoft/BingMapsV8CodeSamples)
+
 ## Additional Resources ##
 
 * [Bing Maps V8 Interactive Code Samples](http://www.bing.com/api/maps/sdk/mapcontrol/isdk)
