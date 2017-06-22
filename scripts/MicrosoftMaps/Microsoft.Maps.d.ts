@@ -47,6 +47,9 @@ declare module Microsoft.Maps {
         /** The aerial map type which uses top-down satellite & airplane imagery. */
         aerial,
 
+        /** High resolution aerial imagery taken at 45 degrees to the ground, from 4 different directions. */
+        birdseye,
+
         /** A darker version of the road maps. */
         canvasDark,
 
