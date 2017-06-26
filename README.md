@@ -1,7 +1,7 @@
 ![Bing Maps Logo](images/BingMapsLogoTeal.png) 
 
-[![NuGet](https://img.shields.io/badge/NuGet-1.0.13-blue.svg)](https://www.nuget.org/packages/Microsoft.BingMaps.V8.TypeScript/)
-[![npm](https://img.shields.io/badge/npm-1.0.13-red.svg)](https://www.npmjs.com/package/bingmaps)
+[![NuGet](https://img.shields.io/badge/NuGet-1.0.14-blue.svg)](https://www.nuget.org/packages/Microsoft.BingMaps.V8.TypeScript/)
+[![npm](https://img.shields.io/badge/npm-1.0.14-red.svg)](https://www.npmjs.com/package/bingmaps)
 [![license](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE.md)
 
 # Bing Maps V8 TypeScript Definitions #
@@ -41,6 +41,7 @@ Simply press the download button for this repository. Unzip the downloaded file,
 If using Visual Studio, you can add a reference to the core Bing Maps V8 functionality by adding the following to the top of your TypeScript file. 
 
 ```
+/// <reference path="scripts/MicrosoftMaps/CustomMapStyles.d.ts" />
 /// <reference path="scripts/MicrosoftMaps/Microsoft.Maps.d.ts" />
 ```
 If you want to also use some of the Bing Maps modules, you can either update the above reference to the following:

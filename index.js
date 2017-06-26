@@ -1,0 +1,1 @@
+/// <reference path="scripts/MicrosoftMaps/Microsoft.Maps.All.d.ts"/>

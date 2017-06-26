@@ -363,7 +363,7 @@ declare module Microsoft.Maps.SpatialDataService {
         end?: string | Location;
 
         /** Intersection object. Can be a well known text string or a LocationRect object (only for intersects filter). */
-        intersects?: string | LocationRect;
+        intersects?: string | LocationRect | IPrimitive;
     }
     
     /** Options for find near route query API. */

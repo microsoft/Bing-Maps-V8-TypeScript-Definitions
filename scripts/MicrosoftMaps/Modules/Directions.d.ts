@@ -432,11 +432,29 @@ declare module Microsoft.Maps.Directions {
         /** A boolean indicating whether to display a warning about walking directions. Default: true */
         displayWalkingWarning?: boolean;
 
+        /** The polyline options that define how to draw the route line on the map, if the RouteMode is driving. */
+        drivingPolylineOptions?: IPolylineOptions;
+
+        /** The pushpin options that define how the first waypoint should be rendered. */
+        firstWaypointPushpinOptions?: IPushpinOptions;
+
         /** The DOM element inside which the directions itinerary will be rendered. */
         itineraryContainer?: HTMLElement;
 
+        /** The pushpin options that define how the last waypoint should be rendered. */
+        lastWaypointPushpinOptions?: IPushpinOptions;
+
         /** A boolean indicating whether to show the input panel. Default: false */
         showInputPanel?: boolean;
+
+        /** The options that define how to draw the route line on the map, if the RouteMode is transit. */
+        transitPolylineOptions?: IPolylineOptions;
+
+        /** The options that define how to draw the route line on the map, if the RouteMode is walking. */
+        walkingPolylineOptions?: IPolylineOptions;
+
+        /** The options that define the pushpin to use for all route waypoints by default. The first and last waypoints in the route will be overriden by firstWaypointPushpinOptions and lastWaypointPushpinOptions if set.  */
+        waypointPushpinOptions?: IPushpinOptions;
     }
 
     /////////////////////////////////////

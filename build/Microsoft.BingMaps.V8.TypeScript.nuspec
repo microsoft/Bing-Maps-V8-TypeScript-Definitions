@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Microsoft.BingMaps.V8.TypeScript</id>
-        <version>1.0.13</version>
+        <version>1.0.14</version>
         <title>Bing Maps V8 TypeScript Definitions</title>
         <authors>Microsoft</authors>
         <owners>microsoft bingmaps</owners>
@@ -31,6 +31,7 @@
         <file src="..\scripts\MicrosoftMaps\Modules\SpatialMath.d.ts" target="content\scripts\MicrosoftMaps\Modules\SpatialMath.d.ts" />
         <file src="..\scripts\MicrosoftMaps\Modules\Traffic.d.ts" target="content\scripts\MicrosoftMaps\Modules\Traffic.d.ts" />
         <file src="..\scripts\MicrosoftMaps\Modules\WellKnownText.d.ts" target="content\scripts\MicrosoftMaps\Modules\WellKnownText.d.ts" />
+        <file src="..\scripts\MicrosoftMaps\CustomMapStyles.d.ts" target="content\scripts\MicrosoftMaps\CustomMapStyles.d.ts" />
         <file src="..\scripts\MicrosoftMaps\Microsoft.Maps.All.d.ts" target="content\scripts\MicrosoftMaps\Microsoft.Maps.All.d.ts" />
         <file src="..\scripts\MicrosoftMaps\Microsoft.Maps.d.ts" target="content\scripts\MicrosoftMaps\Microsoft.Maps.d.ts" />
     </files>

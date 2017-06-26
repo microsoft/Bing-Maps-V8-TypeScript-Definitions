@@ -22,6 +22,8 @@
  * THE SOFTWARE. 
 */
 
+/// <reference path="CustomMapStyles.d.ts"/>
+
 /// <reference path="Microsoft.Maps.d.ts"/>
 
 /// <reference path="Modules/Autosuggest.d.ts"/>

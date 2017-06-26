@@ -22,6 +22,8 @@
  * THE SOFTWARE. 
 */
 
+/// <reference path="CustomMapStyles.d.ts"/>
+
 /**
  *  The Bing Maps V8 developer API.
  */
@@ -46,6 +48,9 @@ declare module Microsoft.Maps {
     export enum MapTypeId {
         /** The aerial map type which uses top-down satellite & airplane imagery. */
         aerial,
+		
+		/** High resolution aerial imagery taken at 45 degrees to the ground, from 4 different directions. */
+		birdseye,
 
         /** A darker version of the road maps. */
         canvasDark,
@@ -339,11 +344,20 @@ declare module Microsoft.Maps {
         */
         allowHidingLabelsOfRoad?: boolean;
 
+        /** A boolean indicating if the infobox is allowed to overflow outside the bounds of the map. Default: false. */
+        allowInfoboxOverflow?: boolean;
+
         /** The color to use for the map control background. The default color is #EAE8E1. This property can only be set when using the Map constructor. */
         backgroundColor?: string | Color;   
 
+        /** Custom map styles used to modify the look and feel of the base map. */
+        customMapStyle?: ICustomMapStyle;
+
         /** A boolean value indicating whether to disable the user’s ability to change the map type through the keyboard. Default: false */
         disableMapTypeKeyboardInput?: boolean;
+
+        /** A boolean value indicating if mousing over the map type selector should open it or not. Default: true */
+        disableMapTypeSelectorMouseOver?: boolean;
 
         /** A boolean value indicating whether to disable the user's ability to pan the map. Default: false */
         disablePanning?: boolean;
@@ -462,6 +476,9 @@ declare module Microsoft.Maps {
 
         /** A set of properties for the streetside mode of the map. */
         streetsideOptions?: IStreetsideOptions;
+
+        /** Additional support map types that should be added to the navigaiton bar such as canvasDark, canvasLight, and grayscale.*/
+        supportedMapTypes?: MapTypeId[];
     }
 
     /** A MapTypeChangeEventArgs object is returned by the map when using the mapTypeChanged event. */
@@ -495,7 +512,13 @@ declare module Microsoft.Maps {
     export interface IMouseEventArgs extends ILayerMouseEventArgs {
         /** The event that occurred. */
         eventName: string;
-		
+
+		/** A boolean indicating if the primary button, such as the left mouse button or a tap on a touch screen, was used during a mouse down or up event. */
+		isPrimary: boolean;
+
+		/** A boolean indicating if the secondary mouse button, such as the right mouse button, was used during a mouse down or up event. */
+		isSecondary: boolean;
+
 		/** If the target is a shape, this will be the layer that the shape is in. */
 		layer: Layer;
 
@@ -529,7 +552,15 @@ declare module Microsoft.Maps {
         */
         getY(): number;
     }
-    
+
+    /**
+     * An object tthat contains information about a streetside scene.
+     */
+    export interface IPanoramaInfo {
+        /** The capture date of the streetside scene. */
+        cd?: string;
+    }
+
     /**
     * All shapes; Pushpins, Polylines and Polygons, derive from the IPrimitive interface. This means that they can be
     * passed into any function that takes in an IPrimitive object. Also, any function that returns an IPrimitive is capable
@@ -616,8 +647,7 @@ declare module Microsoft.Maps {
 
         /**
         * Defines the the icon to use for the pushpin.This can be a URL to an Image or SVG file, an image data URI, or an inline SVG string.
-        * Tip: When using inline SVG, you can pass in a placeholder {color} in your SVG string for fill or stroke colors.This will be replaced by the
-        * pushpins color property value when rendered.
+        * Tip: When using inline SVG, you can pass in placeholders `{color}` and `{text}` in your SVG string. This placeholder will be replaced by the pushpins color or text property value when rendered.
         */
         icon?: string;
 
@@ -671,6 +701,11 @@ declare module Microsoft.Maps {
         * Default: Microsoft.Maps.OverviewMapMode.expanded
         */
         overviewMapMode?: OverviewMapMode;
+
+        /**
+        * Information for a streetside panorama scene to load.
+        */
+        panoramaInfo?: IPanoramaInfo;
 
         /** The radius to search in for available streetside panoramas. */
         panoramaLookupRadius?: number;
@@ -1794,6 +1829,16 @@ declare module Microsoft.Maps {
          */
         constructor(parentElement: string | HTMLElement, options: IMapLoadOptions);
 
+		/**
+		* Gets the streetside panorama information closest to the specified bounding box and returns using a success callback function. 
+		* This information can then be used to set the map view to that streetside panorama.
+		*/
+		public static getClosestPanorama(bounds: LocationRect, success: (panoramaInfo: IPanoramaInfo) => void, missingCoverage: () => void)	: void;
+
+		/** Returns the branch name; release, experimental, frozen. */
+		public static getVersion() : string;
+
+		
         /** Deletes the Map object and releases any associated resources. */
         public dispose(): void;
 
@@ -1834,8 +1879,8 @@ declare module Microsoft.Maps {
         public getHeight(): number;
 
         /**
-         * Returns the heading of the current map view
-         * @returns Returns the heading of the current map view
+         * Returns the heading of the current map view.
+         * @returns Returns the heading of the current map view.
          */
         public getHeading(): number;
 
@@ -1874,6 +1919,12 @@ declare module Microsoft.Maps {
          * @returns The y coordinate of the top left corner of the map control, relative to the page.
          */
         public getPageY(): number;
+
+        /**
+         * Returns the pitch of the current streetside map view.
+         * @returns Returns the pitch of the current streetside map view.
+         */
+        public getPitch(): number;
 
         /**
          * Gets the map root node.
