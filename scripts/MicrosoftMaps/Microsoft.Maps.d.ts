@@ -52,6 +52,9 @@ declare module Microsoft.Maps {
 		/** High resolution aerial imagery taken at 45 degrees to the ground, from 4 different directions. */
 		birdseye,
 
+        /** High resolution aerial imagery taken at 45 degrees to the ground, from 4 different directions. */
+        birdseye,
+
         /** A darker version of the road maps. */
         canvasDark,
 
