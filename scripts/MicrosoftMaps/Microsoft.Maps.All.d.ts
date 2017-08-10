@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright(c) 2016 Microsoft Corporation. All rights reserved. 
+ * Copyright(c) 2017 Microsoft Corporation. All rights reserved. 
  * 
  * This code is licensed under the MIT License (MIT). 
  * 
@@ -33,6 +33,7 @@
 /// <reference path="Modules/Directions.d.ts"/>
 /// <reference path="Modules/DrawingTools.d.ts"/>
 /// <reference path="Modules/GeoJson.d.ts"/>
+/// <reference path="Modules/GeoXml.d.ts"/>
 /// <reference path="Modules/HeatMapLayer.d.ts"/>
 /// <reference path="Modules/Search.d.ts"/>
 /// <reference path="Modules/SpatialDataService.d.ts"/>

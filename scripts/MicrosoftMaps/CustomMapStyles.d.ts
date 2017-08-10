@@ -1,5 +1,5 @@
 /*
- * Copyright(c) 2016 Microsoft Corporation. All rights reserved. 
+ * Copyright(c) 2017 Microsoft Corporation. All rights reserved. 
  * 
  * This code is licensed under the MIT License (MIT). 
  * 
@@ -21,9 +21,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE. 
 */
-
-
-/// <reference path="Microsoft.Maps.d.ts"/>
 
 /*
 * The following are TypeScript definitions for the custom map styles JSON object which can be used witht he Bing Maps V8 SDK.
@@ -86,6 +83,9 @@ declare module Microsoft.Maps {
     export interface ISettingsStyle {
         /** A hex color value that all land is first flushed to before things are drawn on it. */
         landColor?: string;
+		
+		/** Specifies whether or not to draw elevation shading on the map. */
+		shadedReliefVisible?: boolean;
     }
 
     /** Map Elements which can be styled. */
@@ -100,9 +100,6 @@ declare module Microsoft.Maps {
         /** Area of land encompassing an airport. */
         airport?: IMapElementStyle;
 
-        /** Not sure if it works */
-        archipelago?: IMapElementStyle;
-
         /** Area of land use, not to be confused with Structure */
         area?: IMapElementStyle;
 
@@ -111,9 +108,6 @@ declare module Microsoft.Maps {
 
         /** A structure such as a house, store, factory. */
         building?: IMapElementStyle;
-
-        /** A line on a property beyond which no building is allowed. */
-        buildingLine?: IMapElementStyle;
 
         /** Restaurant, hospital, school, etc. */
         business?: IMapElementStyle;
@@ -163,10 +157,7 @@ declare module Microsoft.Maps {
         /** An area of land reserved for Indigenous people. */
         indigenousPeoplesReserve?: IMapElementStyle;
 
-        /** An military area. */
-        military?: IMapElementStyle;
-
-        /** An island or isle is any piece of sub-continental land that is surrounded by water.  */
+        /** Labeling of area of an island.  */
         island?: IMapElementStyle;
 
         /** Major roads. */
@@ -180,6 +171,9 @@ declare module Microsoft.Maps {
 
         /** A building which provides medical services. */
         medicalBuilding?: IMapElementStyle;
+	
+		/** A military area. */
+        military?: IMapElementStyle;
 
         /** A natural point of interest. */
         naturalPoint?: IMapElementStyle;
@@ -227,7 +221,7 @@ declare module Microsoft.Maps {
         roadExit?: IMapElementStyle;
 
         /** Sign representing a compact name for a road. For example, I-5. */
-        roadShield?: IMapElementStyle;
+        //roadShield?: IMapElementStyle;
 
         /** Land area covered by a runway. See also Airport for the land area of the whole airport. */
         runway?: IMapElementStyle;
@@ -238,6 +232,9 @@ declare module Microsoft.Maps {
         /** A shopping center or mall. */
         shoppingCenter?: IMapElementStyle;
 
+		/** Area of a stadium. */
+		stadium?: IMapElementStyle;
+		
         /** A street. */
         street?: IMapElementStyle;
 

@@ -27,6 +27,7 @@ Microsoft.Maps.Events.addOne(pin, 'changed', (e: Microsoft.Maps.IPrimitiveChange
     //e.sender => reference to the pushpin object that changed.
 });
 
+
 layer.add(pin);
 
 map.layers.insert(layer);
@@ -100,6 +101,17 @@ Microsoft.Maps.loadModule('Microsoft.Maps.DataBinning', () => {
     map.layers.insert(dataBinLayer);
 });
 
+
+Microsoft.Maps.loadModule('Microsoft.Maps.GeoXml', () => {
+    var kml = Microsoft.Maps.GeoXml.write(pin, {
+        indentChars: '\t',
+        newLineChars: '\n',
+        prettyPrint: true,
+        roundLocations: true,
+        validate: true,
+        xmlFormat: Microsoft.Maps.GeoXmlFormat.Kml
+    });
+});
 
 /***********************
 * Custom Overlay Example

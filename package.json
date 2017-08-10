@@ -1,8 +1,8 @@
 {
   "name": "bingmaps",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "These are the official TypeScript definitions for the Bing Maps V8 SDK. These can be used to provide intellisense and rich error detection to your IDE.",
-  "typings": "index.d.ts",
+  "typings": "Microsoft.Maps.All.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Microsoft/Bing-Maps-V8-TypeScript-Definitions.git"
