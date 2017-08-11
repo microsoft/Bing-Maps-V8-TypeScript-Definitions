@@ -867,8 +867,8 @@ declare module Microsoft.Maps {
      * Loads the specified registered module, making its functionality available. You can provide the name of a single module or an array of names in.
      * Options or a callback function that is called when the module is loaded can be specified.
      * @param moduleName Name of the module to load. Can be the name of a custom module or a built in module name. Built in modules:
-     * Microsoft.Maps.Autosuggest, Microsoft.Maps.Clustering, Microsoft.Maps.Directions, Microsoft.Maps.DrawingTools, Microsoft.Maps.GeoJSON,
-     * Microsoft.Maps.HeatMap, Microsoft.Maps.Search, Microsoft.Maps.SpatialDataService, Microsoft.Maps.SpatialMath, Microsoft.Maps.Traffic,
+     * Microsoft.Maps.Autosuggest, Microsoft.Maps.Clustering, Microsoft.Maps.DataBinning, Microsoft.Maps.Directions, Microsoft.Maps.DrawingTools, Microsoft.Maps.GeoJSON,
+     * Microsoft.Maps.GeoXml, Microsoft.Maps.HeatMap, Microsoft.Maps.Search, Microsoft.Maps.SpatialDataService, Microsoft.Maps.SpatialMath, Microsoft.Maps.Traffic,
      * Microsoft.Maps.WellKnownText
      * @param options A callback function or options containing additional information and a callback to call once a module is loaded
      */

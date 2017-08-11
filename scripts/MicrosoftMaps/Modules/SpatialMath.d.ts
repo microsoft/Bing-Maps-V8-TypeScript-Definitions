@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright(c) 2016 Microsoft Corporation. All rights reserved. 
+ * Copyright(c) 2017 Microsoft Corporation. All rights reserved. 
  * 
  * This code is licensed under the MIT License (MIT). 
  * 
@@ -23,10 +23,6 @@
 */
 
 /// <reference path="../Microsoft.Maps.d.ts"/>
-
-//////////////////////////////////////////////
-/// Core Library
-//////////////////////////////////////////////
 
 /**
  * This module provides a bunch of useful spatial math calculations.
