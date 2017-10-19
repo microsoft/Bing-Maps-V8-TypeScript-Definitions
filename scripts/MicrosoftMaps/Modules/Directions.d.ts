@@ -552,6 +552,11 @@ declare module Microsoft.Maps.Directions {
         public dispose(): void;
 
         /**
+         * Returns all current pushpins for the rendered route.This includes pushpins created by addWaypoint and viaPoints created due to drag and drop.
+         */
+        public getAllPushpins(): Pushpin[];	
+
+        /**
          * Gets all the waypoints in the directions manager.
          * @returns All the waypoints in the directions manager.
          */

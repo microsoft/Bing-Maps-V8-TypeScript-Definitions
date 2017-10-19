@@ -403,4 +403,48 @@ declare module Microsoft.Maps {
          */
         public setVisible(visible: boolean): void;
     }
+
+
+    export module Events {
+        /////////////////////////////////////
+        /// addHandler Definitions
+        ////////////////////////////////////
+
+        /**
+        * Attaches the handler for the event that is thrown by the target. Use the return object to remove the handler using the removeHandler method.
+        * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
+        * @param eventName The type of event to attach. Supported Events:
+        * click, dblclick, mousedown, mouseout, mouseover, mouseup, rightclick
+        * @param handler The callback function to handle the event when triggered. 
+        * @returns The handler id.
+        */
+        export function addHandler(target: GeoXmlLayer, eventName: string, handler: (eventArg?: IMouseEventArgs) => void): IHandlerId;
+        
+        /////////////////////////////////////
+        /// addOne Definitions
+        ////////////////////////////////////
+        
+        /**
+         * Attaches the handler for the event that is thrown by the target, but only triggers the handler the first once after being attached.
+         * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
+         * @param eventName The type of event to attach. Supported Events:
+         * click, dblclick, mousedown, mouseout, mouseover, mouseup, rightclick
+         * @param handler The callback function to handle the event when triggered.
+         */
+        export function addOne(target: GeoXmlLayer, eventName: string, handler: (eventArg?: IMouseEventArgs) => void): void;
+
+        /////////////////////////////////////
+        /// addThrottledHandler Definitions
+        ////////////////////////////////////
+
+        /**
+        * Attaches the handler for the event that is thrown by the target, where the minimum interval between events (in milliseconds) is specified as a parameter.
+        * @param target The object to attach the event to; Map, IPrimitive, Infobox, Layer, DrawingTools, DrawingManager, DirectionsManager, etc.
+        * @param eventName The type of event to attach. Supported Events:
+        * click, dblclick, mousedown, mouseout, mouseover, mouseup, rightclick
+        * @param handler The callback function to handle the event when triggered. 
+        * @returns The handler id.
+        */
+        export function addThrottledHandler(target: GeoXmlLayer, eventName: string, handler: (eventArg?: IMouseEventArgs) => void): IHandlerId;
+    }
 }

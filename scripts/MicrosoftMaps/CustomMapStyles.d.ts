@@ -190,6 +190,9 @@ declare module Microsoft.Maps {
         /** Icon representing the peak of a mountain. */
         peak?: IMapElementStyle;
 
+        /** Extracted pitches such as a baseball field or tennis court. */
+        playingField?: IMapElementStyle;
+
         /** All point features that are rendered with an icon of some sort */
         point?: IMapElementStyle;
 

@@ -385,11 +385,18 @@ declare module Microsoft.Maps {
 
         /** Custom map styles used to modify the look and feel of the base map. */
         customMapStyle?: ICustomMapStyle;
+
+        /**
+        * A boolean indicating whether to disable the bird’s eye map type. The default value is false. If this property is set to true, bird’s eye will be removed
+        * from the map navigation control and the birdseye MapTypeId is disabled. Additionally, the auto map type will only display road or aerial.
+        * This property can only be set when using the Map constructor.
+        */
+        disableBirdseye?: boolean;
 		
 		/** A boolean value indicating whether to disable the user’s ability to control the using the keyboard. Default: false */
 		disableKeyboardInput?: boolean;
 
-        /** A boolean value indicating if mousing over the map type selector should open it or not. Default: true */
+        /** A boolean value indicating if mousing over the map type selector should open it or not. Default: false */
         disableMapTypeSelectorMouseOver?: boolean;
 
         /** A boolean value indicating whether to disable the user's ability to pan the map. Default: false */
@@ -424,6 +431,13 @@ declare module Microsoft.Maps {
         * This property can only be set when using the Map constructor.
         */
         enableClickableLogo?: boolean;
+
+        /**
+        * A boolean value indicating if CORS (Cross-origin Resource Sharing) should be enabled for tiles. Useful if directly accessing the canvas to generate an image of the map. Default: false
+        * Known Limitations: IE and Edge will not cache tiles when CORS is enabled. Chrome throws errors when this property is set enabled and custom tile layers don’t have CORS enabled on the server.
+        * This property can only be set when using the Map constructor.
+        */
+        enableCORS?: boolean;
 
         /**
         * A boolean value indicating whether to use the inertia animation effect during map navigation. Default: true
@@ -836,6 +850,9 @@ declare module Microsoft.Maps {
 
         /** The location of the center of the map view. If both bounds and center are specified, bounds takes precedence over center. */
         center?: Location;
+
+        /**	The amount the center is shifted in pixels.This property is ignored if center is not specified. */
+        centerOffset?: Point;
 
         /**
         * The directional heading of the map. The heading is represented in geometric degrees with 0 or 360 = North, 90 = East,

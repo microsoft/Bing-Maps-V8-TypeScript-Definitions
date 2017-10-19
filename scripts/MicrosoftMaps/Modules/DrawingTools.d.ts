@@ -25,6 +25,63 @@
 /// <reference path="../Microsoft.Maps.d.ts"/>
 
 declare module Microsoft.Maps {
+
+    /**
+     * Values used to identify and enable the items shown in the drawing bar.
+     */
+    export enum DrawingBarAction {
+        /** No action */
+        none,
+
+        /** Create point primitive */
+        point,
+
+        /** Create polyline primitive */
+        polyline,
+
+        /** Create polygon primitive */
+        polygon,
+
+        /** Create ellipse primitive */
+        ellipse,
+
+        /** Create rectangle primitive */
+        rectangle6,
+
+        /** Erase existing primitive */
+        erase,
+
+        /** Edit existing primitive */
+        edit,
+
+        /** Change stroke style */
+        strokeStyle,
+
+        /** Change fill style */
+        fillStyle,
+
+        /** Set stroke line thickness */
+        lineThickness,
+
+        /** Set stroke dash style */
+        strokeDash,
+
+        /** Show debug menu */
+        debug,
+
+        /** All items */
+        all,
+
+        /** All shape creation items */
+        createShapes,
+
+        /** All shape editing items */
+        editShapes,
+
+        /** All shape styling items */
+        styleShapes
+    }
+
     /** An object that contains the event arguments for when the drawing mode changes in the drawing tools. **/
     export interface IDrawingModeChangedData {
 
@@ -34,15 +91,26 @@ declare module Microsoft.Maps {
         /** The new drawing mode. **/
         mode: DrawingTools.DrawingMode;
     }
+
+    /**
+     * Collection of options for the various DrawingTool methods
+     */
+    export interface IDrawingToolOptions {
+        /** Set of buttons to show in the drawing bar */
+        drawingBarActions?: DrawingBarAction;
+    }
 	
 	/** An object that contains options to change the settings of the drawing manager.  */
-	export interface IDrawingManagerOptions {
+    export interface IDrawingManagerOptions extends IDrawingToolOptions {
+        /** Set of buttons to show in the drawing bar. */
+        drawingBarActions?: DrawingBarAction;
+        
 		/** The fill color used for pushpins and polygons. */
-		fill: string | Color;
+		fillColor?: string | Color;
 		
 		/** The stroke color used for polylines and polygons. */
-		stroke:	string | Color;
-	}
+		strokeColor?:	string | Color;
+    }
 
     /**
      * The DrawingManager class manages the ability to draw and edit multiple shapes on the map. Shapes managed by this class are rendered on a separate drawing layer.
@@ -155,6 +223,13 @@ declare module Microsoft.Maps {
         public finish(finished?: (shape: IPrimitive) => void): void;
 
         /**
+         * Shows the drawing toolbar, if it isn't already visible.
+         * @param options - Options for this DrawingTool operation. Specifically,
+         * the drawingBarActions property is used to customize the drawing bar view.
+         */
+        public showDrawingBar(options?: IDrawingToolOptions): void;
+
+        /**
         * Creates a drawing manager which allows multi-shape editing and displays the toolbar.
         * @param callback A callback function that is triggered after the DrawingTools have loaded. 
         */
@@ -233,7 +308,6 @@ declare module Microsoft.Maps {
          */
         export function addThrottledHandler(target: DrawingManager, eventName: string, handler: (eventArg?: IPrimitive | DrawingTools.DrawingMode) => void, throttleInterval: number): IHandlerId;
     }
-
 }
 
 declare module Microsoft.Maps.DrawingTools {

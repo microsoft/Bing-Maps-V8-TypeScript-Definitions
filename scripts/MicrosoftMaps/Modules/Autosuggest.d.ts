@@ -43,6 +43,12 @@ declare module Microsoft.Maps {
         bounds?: LocationRect;
 
         /**
+        * A string specifying the ISO 3166-1 alpha-2 country region code which is used to limit suggests to a single country.
+        * https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+        */
+        countryCode?: string;
+
+        /**
         * A reference to a map instance. If the useMapView property is set to true, the bounding box of the map view will be used
         * to influence the weight of suggestions.
         */
@@ -128,6 +134,13 @@ declare module Microsoft.Maps {
         * @returns The options currently used by the autosuggest manager.
         */
         public getOptions(): IAutosuggestOptions;
+
+        /**
+         * Programmatically retrieves suggestions for queries without the need to attach a textbox to the AutosuggestManager.
+         * @param query The text to get suggestions for.
+         * @param callback The callback function to return the suggestions to.
+         */
+        public getSuggestions(query: string, callback: (suggestions: ISuggestionResult[], query: string) => void): void;
 
         /**
         * Sets the options currently used by the autosuggest manager.
