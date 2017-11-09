@@ -34,9 +34,9 @@ Using the [Bing Maps V8 TypeScript npm package](https://www.npmjs.com/package/bi
 npm install -g bingmaps
 ```
 
-**Use DefinatelyTyped**
+**Use DefinitelyTyped**
 
-Use DefinatelyTyped version of these definitions via npm:
+Use DefinitelyTyped version of these definitions via npm:
 
 ```
 npm install --save @types/bingmaps
