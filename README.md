@@ -70,7 +70,7 @@ or you can add a reference to the individual module definitions.
 | [Data Binning](https://msdn.microsoft.com/en-us/library/mt743067.aspx) | types/MicrosoftMaps/Modules/DataBinning.d.ts |
 | [Directions](https://msdn.microsoft.com/en-US/library/mt748655.aspx)            | types/MicrosoftMaps/Modules/Directions.d.ts            |
 | [Drawing Tools](https://msdn.microsoft.com/en-us/library/mt750543.aspx)         | types/MicrosoftMaps/Modules/DrawingTools.d.ts          |
-| [GeoJson](https://msdn.microsoft.com/en-us/library/mt712806.aspx)               | types/MicrosoftMaps/Modules/GeoJson.d.ts               |
+| [GeoJSON](https://msdn.microsoft.com/en-us/library/mt712806.aspx)               | types/MicrosoftMaps/Modules/GeoJson.d.ts               |
 | [GeoXml](https://msdn.microsoft.com/en-us/library/mt825057.aspx)                | types/MicrosoftMaps/Modules/GeoXml.d.ts               |
 | [Heat Map Layer](https://msdn.microsoft.com/en-us/library/mt712868.aspx)        | types/MicrosoftMaps/Modules/HeatMapLayer.d.ts          |
 | [Search](https://msdn.microsoft.com/en-us/library/mt712846.aspx)                | types/MicrosoftMaps/Modules/Search.d.ts                |
