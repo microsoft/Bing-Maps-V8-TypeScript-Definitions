@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Microsoft.BingMaps.V8.TypeScript</id>
-        <version>2.0.0</version>
+        <version>2.0.1</version>
         <title>Bing Maps V8 TypeScript Definitions</title>
         <authors>Microsoft</authors>
         <owners>microsoft bingmaps</owners>
@@ -16,9 +16,6 @@
         <copyright>© Microsoft Corporation. All rights reserved.</copyright>
         <language />
         <tags>Microsoft "Bing Maps" Maps GIS TypeScript V8 Web Map Geospatial JavaScript</tags>
-		<contentFiles>
-			<files include="types/MicrosoftMaps/*.*" buildAction="EmbeddedResource" />
-		</contentFiles>
     </metadata>
     <files>
         <file src="..\types\MicrosoftMaps\Modules\Autosuggest.d.ts" target="content\types\MicrosoftMaps\Modules\Autosuggest.d.ts" />
@@ -27,34 +24,33 @@
         <file src="..\types\MicrosoftMaps\Modules\DataBinning.d.ts" target="content\types\MicrosoftMaps\Modules\DataBinning.d.ts" />
         <file src="..\types\MicrosoftMaps\Modules\Directions.d.ts" target="content\types\MicrosoftMaps\Modules\Directions.d.ts" />
         <file src="..\types\MicrosoftMaps\Modules\DrawingTools.d.ts" target="content\types\MicrosoftMaps\Modules\DrawingTools.d.ts" />
-        <file src="..\types\MicrosoftMaps\Modules\GeoJson.d.ts" target="content\types\MicrosoftMaps\Modules\GeoJson.d.ts" />
+        <file src="..\types\MicrosoftMaps\Modules\GeoJSON.d.ts" target="content\types\MicrosoftMaps\Modules\GeoJson.d.ts" />
         <file src="..\types\MicrosoftMaps\Modules\GeoXml.d.ts" target="content\types\MicrosoftMaps\Modules\GeoXml.d.ts" />
         <file src="..\types\MicrosoftMaps\Modules\HeatMapLayer.d.ts" target="content\types\MicrosoftMaps\Modules\HeatMapLayer.d.ts" />
         <file src="..\types\MicrosoftMaps\Modules\Search.d.ts" target="content\types\MicrosoftMaps\Modules\Search.d.ts" />
+        <file src="..\types\MicrosoftMaps\Modules\SpatialDataService.d.ts" target="content\types\MicrosoftMaps\Modules\SpatialDataService.d.ts" />
         <file src="..\types\MicrosoftMaps\Modules\SpatialMath.d.ts" target="content\types\MicrosoftMaps\Modules\SpatialMath.d.ts" />
         <file src="..\types\MicrosoftMaps\Modules\Traffic.d.ts" target="content\types\MicrosoftMaps\Modules\Traffic.d.ts" />
         <file src="..\types\MicrosoftMaps\Modules\WellKnownText.d.ts" target="content\types\MicrosoftMaps\Modules\WellKnownText.d.ts" />
-        <file src="..\types\MicrosoftMaps\Modules\SpatialDataService.d.ts" target="content\types\MicrosoftMaps\Modules\SpatialDataService.d.ts" />
         <file src="..\types\MicrosoftMaps\CustomMapStyles.d.ts" target="content\types\MicrosoftMaps\CustomMapStyles.d.ts" />
         <file src="..\types\MicrosoftMaps\Microsoft.Maps.All.d.ts" target="content\types\MicrosoftMaps\Microsoft.Maps.All.d.ts" />
         <file src="..\types\MicrosoftMaps\Microsoft.Maps.d.ts" target="content\types\MicrosoftMaps\Microsoft.Maps.d.ts" />
-		
-		<file src="..\types\MicrosoftMaps\Modules\Autosuggest.d.ts" target="contentFiles\types\MicrosoftMaps\Modules" />
-        <file src="..\types\MicrosoftMaps\Modules\Clustering.d.ts" target="contentFiles\types\MicrosoftMaps\Modules" />
-        <file src="..\types\MicrosoftMaps\Modules\Contour.d.ts" target="contentFiles\types\MicrosoftMaps\Modules" />
-        <file src="..\types\MicrosoftMaps\Modules\DataBinning.d.ts" target="contentFiles\types\MicrosoftMaps\Modules" />
-        <file src="..\types\MicrosoftMaps\Modules\Directions.d.ts" target="contentFiles\types\MicrosoftMaps\Modules" />
-        <file src="..\types\MicrosoftMaps\Modules\DrawingTools.d.ts" target="contentFiles\types\MicrosoftMaps\Modules" />
-        <file src="..\types\MicrosoftMaps\Modules\GeoJson.d.ts" target="contentFiles\types\MicrosoftMaps\Modules" />
-        <file src="..\types\MicrosoftMaps\Modules\GeoXml.d.ts" target="contentFiles\types\MicrosoftMaps\Modules" />
-        <file src="..\types\MicrosoftMaps\Modules\HeatMapLayer.d.ts" target="contentFiles\types\MicrosoftMaps\Modules" />
-        <file src="..\types\MicrosoftMaps\Modules\Search.d.ts" target="contentFiles\types\MicrosoftMaps\Modules" />
-        <file src="..\types\MicrosoftMaps\Modules\SpatialMath.d.ts" target="contentFiles\types\MicrosoftMaps\Modules" />
-        <file src="..\types\MicrosoftMaps\Modules\Traffic.d.ts" target="contentFiles\types\MicrosoftMaps\Modules" />
-        <file src="..\types\MicrosoftMaps\Modules\WellKnownText.d.ts" target="contentFiles\types\MicrosoftMaps\Modules" />
-        <file src="..\types\MicrosoftMaps\Modules\SpatialDataService.d.ts" target="contentFiles\types\MicrosoftMaps\Modules" />
-        <file src="..\types\MicrosoftMaps\CustomMapStyles.d.ts" target="contentFiles\types\MicrosoftMaps" />
-        <file src="..\types\MicrosoftMaps\Microsoft.Maps.All.d.ts" target="contentFiles\types\MicrosoftMaps" />
-        <file src="..\types\MicrosoftMaps\Microsoft.Maps.d.ts" target="contentFiles\types\MicrosoftMaps" />
+        <file src="..\types\MicrosoftMaps\Modules\Autosuggest.d.ts" target="contentFiles\types\MicrosoftMaps\Modules\Autosuggest.d.ts" />
+        <file src="..\types\MicrosoftMaps\Modules\Clustering.d.ts" target="contentFiles\types\MicrosoftMaps\Modules\Clustering.d.ts" />
+        <file src="..\types\MicrosoftMaps\Modules\Contour.d.ts" target="contentFiles\types\MicrosoftMaps\Modules\Contour.d.ts" />
+        <file src="..\types\MicrosoftMaps\Modules\DataBinning.d.ts" target="contentFiles\types\MicrosoftMaps\Modules\DataBinning.d.ts" />
+        <file src="..\types\MicrosoftMaps\Modules\Directions.d.ts" target="contentFiles\types\MicrosoftMaps\Modules\Directions.d.ts" />
+        <file src="..\types\MicrosoftMaps\Modules\DrawingTools.d.ts" target="contentFiles\types\MicrosoftMaps\Modules\DrawingTools.d.ts" />
+        <file src="..\types\MicrosoftMaps\Modules\GeoJSON.d.ts" target="contentFiles\types\MicrosoftMaps\Modules\GeoJSON.d.ts" />
+        <file src="..\types\MicrosoftMaps\Modules\GeoXml.d.ts" target="contentFiles\types\MicrosoftMaps\Modules\GeoXml.d.ts" />
+        <file src="..\types\MicrosoftMaps\Modules\HeatMapLayer.d.ts" target="contentFiles\types\MicrosoftMaps\Modules\HeatMapLayer.d.ts" />
+        <file src="..\types\MicrosoftMaps\Modules\Search.d.ts" target="contentFiles\types\MicrosoftMaps\Modules\Search.d.ts" />
+        <file src="..\types\MicrosoftMaps\Modules\SpatialDataService.d.ts" target="contentFiles\types\MicrosoftMaps\Modules\SpatialDataService.d.ts" />
+        <file src="..\types\MicrosoftMaps\Modules\SpatialMath.d.ts" target="contentFiles\types\MicrosoftMaps\Modules\SpatialMath.d.ts" />
+        <file src="..\types\MicrosoftMaps\Modules\Traffic.d.ts" target="contentFiles\types\MicrosoftMaps\Modules\Traffic.d.ts" />
+        <file src="..\types\MicrosoftMaps\Modules\WellKnownText.d.ts" target="contentFiles\types\MicrosoftMaps\Modules\WellKnownText.d.ts" />
+        <file src="..\types\MicrosoftMaps\CustomMapStyles.d.ts" target="contentFiles\types\MicrosoftMaps\CustomMapStyles.d.ts" />
+        <file src="..\types\MicrosoftMaps\Microsoft.Maps.All.d.ts" target="contentFiles\types\MicrosoftMaps\Microsoft.Maps.All.d.ts" />
+        <file src="..\types\MicrosoftMaps\Microsoft.Maps.d.ts" target="contentFiles\types\MicrosoftMaps\Microsoft.Maps.d.ts" />
     </files>
 </package>

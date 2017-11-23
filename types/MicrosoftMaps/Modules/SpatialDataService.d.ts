@@ -463,6 +463,7 @@ declare module Microsoft.Maps.SpatialDataService {
         export function search(queryOptions: IQueryAPIOptions,
             credentials: string | Map,
             callback: (data: IPrimitive[], inlineCount?: number) => void,
-            styles?: IStylesOptions): void;
+            styles?: IStylesOptions,
+			errorCallback?: (networkStatus?: string, statusMessage?: string)=> void): void;
     }
 }

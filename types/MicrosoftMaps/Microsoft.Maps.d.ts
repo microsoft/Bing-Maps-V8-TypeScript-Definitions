@@ -279,9 +279,13 @@ declare module Microsoft.Maps {
         /** The string displayed inside the infobox. */
         description?: string;
 
+        /** The number of milliseconds to wait before closing an infobox when the visible option is changed from true to false. Default: 0 */
+        closeDelayTime?: number;
+
         /**
-        * The HTML that represents the infobox. Note that infobox options are ignored if custom HTML is set. Also, if custom HTML is used to represent the
-        * infobox, the infobox is anchored at the top-left corner.
+        * TThe HTML that represents the infobox. Note that some infobox options are ignored if custom HTML is set
+        * (title, description, maxHeight, maxWidth, actions, showCloseButton, showPoint).
+        * Also, if custom HTML is used to represent the infobox, the infobox is anchored at the top-left corner.
         */
         htmlContent?: string;
 
@@ -361,10 +365,14 @@ declare module Microsoft.Maps {
 
     /** Map or View options */
     export interface IMapLoadOptions extends IMapOptions, IViewOptions {
-        /** The Bing Maps Key used to authenticate the application. This property can only be set when using the Map constructor. */
-        credentials: string;
+        /** 
+        * @deprecated
+        * The Bing Maps Key used to authenticate the application.
+        * It is recommended that the Bing Maps key be set as a URL parameter of the Bing Maps script reference. This option will continue to work.
+        */
+        credentials?: string;
     }
-
+    
     /**
     * An object that can be used to customize the map. Some of the map options can be changed after the map has loaded by using
     * the setOptions function on the map.
@@ -438,6 +446,13 @@ declare module Microsoft.Maps {
         * This property can only be set when using the Map constructor.
         */
         enableCORS?: boolean;
+		
+		/**
+		* Enables the map to use map tiles suitable for a higher DPI display, if the display supports it. 
+		* When set to false and the map is loaded on a high DPI display, custom tile layers will load tiles 
+		* at a higher zoom level and scale the image to increase the DPI. Default: false.
+		*/
+		enableHighDpi?: boolean;
 
         /**
         * A boolean value indicating whether to use the inertia animation effect during map navigation. Default: true
@@ -545,7 +560,11 @@ declare module Microsoft.Maps {
 
     /** Interface for module options. */
     export interface IModuleOptions {
-        /** A callback function that is fired after the module has loaded. */
+        /** 
+        * @deprecated
+        * A callback function that is fired after the module has loaded.
+        * It is recommended that the Bing Maps key be set as a URL parameter of the Bing Maps script reference.
+        */
         callback?: () => void;
 
         /** A function that is called if there is an error loading the module. */
@@ -796,7 +815,9 @@ declare module Microsoft.Maps {
 
     /** Represents options that can be used to customize a tile layer. */
     export interface ITileLayerOptions {
-
+		/** Allow retrieving data from CORS supported server. */
+		enableCORS?: boolean;
+	
         /**
         * The number of milliseconds allowed for the tile layer image download. If the timeout occurs before the image is fully
         * downloaded, the map control considers the download a failure. The default value is 10000.
@@ -808,6 +829,9 @@ declare module Microsoft.Maps {
 
         /** The opacity of the tile layer, defined by a number between 0 (not visible) and 1. */
         opacity?: number;
+		
+		/** Specifies that CORS should be made with the "use-credentials" flag instead of "anonymous". */
+		useCredentialsForCORS?: boolean;
 
         /**
         * A boolean indicating whether to show or hide the tile layer. The default value is true. A value of false indicates that
@@ -1612,10 +1636,10 @@ declare module Microsoft.Maps {
         public setMap(map: Map): void;
 
         /**
-        * Sets options for the infobox.
+        * Sets options for the infobox. If the ignoreDelay parameter is set to true, the closeDelayTime will be ignored if the visible option is being changed from true to false.
         * @param options The options to assign to the infobox.
         */
-        public setOptions(options: IInfoboxOptions): void;
+        public setOptions(options: IInfoboxOptions, ignoreDelay?: boolean): void;
     }
 
     /**
@@ -1962,7 +1986,7 @@ declare module Microsoft.Maps {
         public splitByInternationalDateLine(): LocationRect[];
 
         /**
-        * Converts the LocationRect object to a string.
+        * Converts the LocationRect object to a string. The output will be in the format "North,West,South,East".
         * @returns A string version of the LocationRect.
         */
         public toString(): string;

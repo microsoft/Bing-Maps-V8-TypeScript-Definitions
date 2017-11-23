@@ -32,7 +32,7 @@
 /// <reference path="Modules/DataBinning.d.ts"/>
 /// <reference path="Modules/Directions.d.ts"/>
 /// <reference path="Modules/DrawingTools.d.ts"/>
-/// <reference path="Modules/GeoJson.d.ts"/>
+/// <reference path="Modules/GeoJSON.d.ts"/>
 /// <reference path="Modules/GeoXml.d.ts"/>
 /// <reference path="Modules/HeatMapLayer.d.ts"/>
 /// <reference path="Modules/Search.d.ts"/>
