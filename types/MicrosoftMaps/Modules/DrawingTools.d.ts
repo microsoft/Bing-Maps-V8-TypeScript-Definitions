@@ -26,62 +26,6 @@
 
 declare module Microsoft.Maps {
 
-    /**
-     * Values used to identify and enable the items shown in the drawing bar.
-     */
-    export enum DrawingBarAction {
-        /** No action */
-        none,
-
-        /** Create point primitive */
-        point,
-
-        /** Create polyline primitive */
-        polyline,
-
-        /** Create polygon primitive */
-        polygon,
-
-        /** Create ellipse primitive */
-        ellipse,
-
-        /** Create rectangle primitive */
-        rectangle6,
-
-        /** Erase existing primitive */
-        erase,
-
-        /** Edit existing primitive */
-        edit,
-
-        /** Change stroke style */
-        strokeStyle,
-
-        /** Change fill style */
-        fillStyle,
-
-        /** Set stroke line thickness */
-        lineThickness,
-
-        /** Set stroke dash style */
-        strokeDash,
-
-        /** Show debug menu */
-        debug,
-
-        /** All items */
-        all,
-
-        /** All shape creation items */
-        createShapes,
-
-        /** All shape editing items */
-        editShapes,
-
-        /** All shape styling items */
-        styleShapes
-    }
-
     /** An object that contains the event arguments for when the drawing mode changes in the drawing tools. **/
     export interface IDrawingModeChangedData {
 
@@ -91,19 +35,19 @@ declare module Microsoft.Maps {
         /** The new drawing mode. **/
         mode: DrawingTools.DrawingMode;
     }
-
+    
     /**
      * Collection of options for the various DrawingTool methods
      */
     export interface IDrawingToolOptions {
         /** Set of buttons to show in the drawing bar */
-        drawingBarActions?: DrawingBarAction;
+        drawingBarActions?: DrawingTools.DrawingBarAction;
     }
 	
 	/** An object that contains options to change the settings of the drawing manager.  */
     export interface IDrawingManagerOptions extends IDrawingToolOptions {
         /** Set of buttons to show in the drawing bar. */
-        drawingBarActions?: DrawingBarAction;
+        drawingBarActions?: DrawingTools.DrawingBarAction;
         
 		/** The fill color used for pushpins and polygons. */
 		fillColor?: string | Color;
@@ -345,5 +289,61 @@ declare module Microsoft.Maps.DrawingTools {
 
         /** A polyline shape type. */
         polyline
+    }
+
+    /**
+     * Values used to identify and enable the items shown in the drawing bar.
+     */
+    export enum DrawingBarAction {
+        /** No action */
+        none,
+
+        /** Create point primitive */
+        point,
+
+        /** Create polyline primitive */
+        polyline,
+
+        /** Create polygon primitive */
+        polygon,
+
+        /** Create ellipse primitive */
+        ellipse,
+
+        /** Create rectangle primitive */
+        rectangle6,
+
+        /** Erase existing primitive */
+        erase,
+
+        /** Edit existing primitive */
+        edit,
+
+        /** Change stroke style */
+        strokeStyle,
+
+        /** Change fill style */
+        fillStyle,
+
+        /** Set stroke line thickness */
+        lineThickness,
+
+        /** Set stroke dash style */
+        strokeDash,
+
+        /** Show debug menu */
+        debug,
+
+        /** All items */
+        all,
+
+        /** All shape creation items */
+        createShapes,
+
+        /** All shape editing items */
+        editShapes,
+
+        /** All shape styling items */
+        styleShapes
     }
 }
