@@ -82,7 +82,7 @@ or you can add a reference to the individual module definitions.
 
 **Note:**
 
-This project is just TypeScript definitions fand not actual API code. You will need to add a script reference to the Bing Maps V8 Web Control in your application to load the functional API. For example:
+This project is just TypeScript definitions and not actual API code. You will need to add a script reference to the Bing Maps V8 Web Control in your application to load the functional API. For example:
 
 ```
 <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=[Your_Bing_Maps_Key]' async defer></script>
