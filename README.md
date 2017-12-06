@@ -54,6 +54,7 @@ If using Visual Studio, you can add a reference to the core Bing Maps V8 functio
 /// <reference path="types/MicrosoftMaps/CustomMapStyles.d.ts" />
 /// <reference path="types/MicrosoftMaps/Microsoft.Maps.d.ts" />
 ```
+
 If you want to also use some of the Bing Maps modules, you can either update the above reference to the following:
 
 ```
@@ -78,6 +79,14 @@ or you can add a reference to the individual module definitions.
 | [Spatial Math](https://msdn.microsoft.com/en-us/library/mt712834.aspx)          | types/MicrosoftMaps/Modules/SpatialMath.d.ts           |
 | [Traffic](https://msdn.microsoft.com/en-us/library/mt712860.aspx)               | types/MicrosoftMaps/Modules/Traffic.d.ts               |
 | [Well Known Text](https://msdn.microsoft.com/en-us/library/mt712880.aspx)       | types/MicrosoftMaps/Modules/WellKnownText.d.ts         |
+
+**Note:**
+
+This project is just TypeScript definitions fand not actual API code. You will need to add a script reference to the Bing Maps V8 Web Control in your application to load the functional API. For example:
+
+```
+<script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=[Your_Bing_Maps_Key]' async defer></script>
+```
 
 ## Screenshots ##
 
