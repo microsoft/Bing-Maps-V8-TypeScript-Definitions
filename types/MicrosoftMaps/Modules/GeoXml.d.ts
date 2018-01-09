@@ -101,6 +101,9 @@ declare module Microsoft.Maps {
 
         /** A boolean indicating if the layer is visible or not. Default: true */
         visible?: boolean;
+
+        /** An optional name to identify the layer by. */
+        layerName?: string;
     }
 
     /**

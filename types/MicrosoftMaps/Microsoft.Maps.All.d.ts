@@ -40,3 +40,5 @@
 /// <reference path="Modules/SpatialMath.d.ts"/>
 /// <reference path="Modules/Traffic.d.ts"/>
 /// <reference path="Modules/WellKnownText.d.ts"/>
+
+/// <reference path="ConfigurationDrivenMaps.d.ts"/>

@@ -28,6 +28,11 @@
  *  The Bing Maps V8 developer API.
  */
 declare module Microsoft.Maps {
+    /**
+     * The Bing Maps key used to load the map. 
+     */
+    export var Credentials: string;
+
     //////////////////////////////////////////////
     /// Enumerations
     //////////////////////////////////////////////
@@ -412,7 +417,7 @@ declare module Microsoft.Maps {
 
         /**
         * Scrolling the mouse wheel over the map will zoom it in or out, but will not scroll the page.
-        * Setting this property to true disables the zooming of the map and instead reverts back to scrolling the page instea.
+        * Setting this property to true disables the zooming of the map and instead reverts back to scrolling the page.
         * Default: false
         */
         disableScrollWheelZoom?: boolean;
@@ -903,7 +908,7 @@ declare module Microsoft.Maps {
     //////////////////////////////////////////////
     /// Modular Framework
     //////////////////////////////////////////////
-
+    
     /**
      * Loads the specified registered module, making its functionality available. You can provide the name of a single module or an array of names in.
      * Options or a callback function that is called when the module is loaded can be specified.
@@ -929,6 +934,18 @@ declare module Microsoft.Maps {
      * @param moduleName Name of the module that is loaded.
      */
     export function moduleLoaded(moduleName: string): void;
+    
+    //////////////////////////////////////////////
+    /// Static methods
+    //////////////////////////////////////////////
+
+    /**
+     * Checks to see if Birdseye imagery is available at a specified location and heading.
+     * @param loc The location to check for Birdseye imagery coverage.
+     * @param heading The heading of the imagery to check for. Default: 0.
+     * @param callback A callback function which recieves a boolean indicating if birdseye coverage is available in the specified location or not.
+     */
+    export function getIsBirdseyeAvailable(loc: Location, heading: Heading | number, callback: (isAvailable: boolean) => void): void;
 
     //////////////////////////////////////////////
     /// Classes
@@ -2015,8 +2032,7 @@ declare module Microsoft.Maps {
 
 		/** Returns the branch name; release, experimental, frozen. */
 		public static getVersion() : string;
-
-		
+        		
         /** Deletes the Map object and releases any associated resources. */
         public dispose(): void;
 

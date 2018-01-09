@@ -203,8 +203,16 @@ declare module Microsoft.Maps.SpatialDataService {
          * @param credentials A bing maps key or a map instance which can be used to provide credentials to access the data source. Note that the map will need
          * to be loaded with a bing maps key that has access to the data source.
          * @param callback A callback function to return the results to. If an array of locations are specified the callback function will be triggered for each location in the array.
+         * @param styles The polygon styling settings to apply to the boundary polygon.
+         * @param errorCallback A callback function to trigger when an error occurs when searching for a boundary. 
          */
-        export function getBoundary(locations: string | Location | (string | Location)[], request: IGetBoundaryRequestOptions, credentials: string | Map, callback: (results: IGeoDataResultSet) => void, styles?: IPolygonOptions): void;
+        export function getBoundary(locations: string | Location | (string | Location)[],
+            request: IGetBoundaryRequestOptions,
+            credentials: string | Map,
+            callback: (results: IGeoDataResultSet) => void,
+            styles?: IPolygonOptions,
+            errorCallback?: (callbackState?: string | Location, networkStatus?: string) => void
+        ): void;
     }
 
     //////////////////////////////////////////////

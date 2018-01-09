@@ -4,7 +4,6 @@ var map = new Microsoft.Maps.Map('#MyMap', {
     credentials: 'Your Bing Maps Key'    
 });
 
-
 var pushpins = <Microsoft.Maps.Pushpin[]>Microsoft.Maps.TestDataGenerator.getPushpins(10, this.map.getBounds());
 var infobox = new Microsoft.Maps.Infobox(pushpins[0].getLocation(), { visible: false });
 infobox.setMap(map);
@@ -26,7 +25,6 @@ Microsoft.Maps.Events.addOne(pin, 'changed', (e: Microsoft.Maps.IPrimitiveChange
     //e.name => name of property that changed.
     //e.sender => reference to the pushpin object that changed.
 });
-
 
 layer.add(pin);
 

@@ -295,9 +295,6 @@ declare module Microsoft.Maps.DrawingTools {
      * Values used to identify and enable the items shown in the drawing bar.
      */
     export enum DrawingBarAction {
-        /** No action */
-        none,
-
         /** Create point primitive */
         point,
 
@@ -306,12 +303,6 @@ declare module Microsoft.Maps.DrawingTools {
 
         /** Create polygon primitive */
         polygon,
-
-        /** Create ellipse primitive */
-        ellipse,
-
-        /** Create rectangle primitive */
-        rectangle6,
 
         /** Erase existing primitive */
         erase,
@@ -324,15 +315,6 @@ declare module Microsoft.Maps.DrawingTools {
 
         /** Change fill style */
         fillStyle,
-
-        /** Set stroke line thickness */
-        lineThickness,
-
-        /** Set stroke dash style */
-        strokeDash,
-
-        /** Show debug menu */
-        debug,
 
         /** All items */
         all,

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Microsoft.BingMaps.V8.TypeScript</id>
-        <version>2.0.1</version>
+        <version>2.0.2</version>
         <title>Bing Maps V8 TypeScript Definitions</title>
         <authors>Microsoft</authors>
         <owners>microsoft bingmaps</owners>
@@ -32,6 +32,7 @@
         <file src="..\types\MicrosoftMaps\Modules\SpatialMath.d.ts" target="content\types\MicrosoftMaps\Modules\SpatialMath.d.ts" />
         <file src="..\types\MicrosoftMaps\Modules\Traffic.d.ts" target="content\types\MicrosoftMaps\Modules\Traffic.d.ts" />
         <file src="..\types\MicrosoftMaps\Modules\WellKnownText.d.ts" target="content\types\MicrosoftMaps\Modules\WellKnownText.d.ts" />
+        <file src="..\types\MicrosoftMaps\ConfigurationDrivenMaps.d.ts" target="content\types\MicrosoftMaps\ConfigurationDrivenMaps.d.ts" />
         <file src="..\types\MicrosoftMaps\CustomMapStyles.d.ts" target="content\types\MicrosoftMaps\CustomMapStyles.d.ts" />
         <file src="..\types\MicrosoftMaps\Microsoft.Maps.All.d.ts" target="content\types\MicrosoftMaps\Microsoft.Maps.All.d.ts" />
         <file src="..\types\MicrosoftMaps\Microsoft.Maps.d.ts" target="content\types\MicrosoftMaps\Microsoft.Maps.d.ts" />
@@ -49,6 +50,7 @@
         <file src="..\types\MicrosoftMaps\Modules\SpatialMath.d.ts" target="contentFiles\types\MicrosoftMaps\Modules\SpatialMath.d.ts" />
         <file src="..\types\MicrosoftMaps\Modules\Traffic.d.ts" target="contentFiles\types\MicrosoftMaps\Modules\Traffic.d.ts" />
         <file src="..\types\MicrosoftMaps\Modules\WellKnownText.d.ts" target="contentFiles\types\MicrosoftMaps\Modules\WellKnownText.d.ts" />
+        <file src="..\types\MicrosoftMaps\ConfigurationDrivenMaps.d.ts" target="contentFiles\types\MicrosoftMaps\ConfigurationDrivenMaps.d.ts" />
         <file src="..\types\MicrosoftMaps\CustomMapStyles.d.ts" target="contentFiles\types\MicrosoftMaps\CustomMapStyles.d.ts" />
         <file src="..\types\MicrosoftMaps\Microsoft.Maps.All.d.ts" target="contentFiles\types\MicrosoftMaps\Microsoft.Maps.All.d.ts" />
         <file src="..\types\MicrosoftMaps\Microsoft.Maps.d.ts" target="contentFiles\types\MicrosoftMaps\Microsoft.Maps.d.ts" />
