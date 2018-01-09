@@ -1,7 +1,7 @@
 ![Bing Maps Logo](images/BingMapsLogoTeal.png) 
 
-[![NuGet](https://img.shields.io/badge/NuGet-2.0.1-blue.svg)](https://www.nuget.org/packages/Microsoft.BingMaps.V8.TypeScript/)
-[![npm](https://img.shields.io/badge/npm-2.0.1-red.svg)](https://www.npmjs.com/package/bingmaps)
+[![NuGet](https://img.shields.io/badge/NuGet-2.0.2-blue.svg)](https://www.nuget.org/packages/Microsoft.BingMaps.V8.TypeScript/)
+[![npm](https://img.shields.io/badge/npm-2.0.2-red.svg)](https://www.npmjs.com/package/bingmaps)
 [![license](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE.md)
 
 # Bing Maps V8 TypeScript Definitions #
