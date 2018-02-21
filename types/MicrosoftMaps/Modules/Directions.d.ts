@@ -47,6 +47,9 @@ declare module Microsoft.Maps.Directions {
         /** Transit directions are calculated. */
         transit,
 
+        /** Driving directions using truck attributes are calculationed. */
+        truck,
+
         /** Walking directions are calculated. */
         walking
     }
@@ -421,6 +424,9 @@ declare module Microsoft.Maps.Directions {
 
         /** The time to use when calculating the route. If this property is set to null, the current time is used */
         time?: Date;
+
+        /** Specifies the vehicle attributes to use when calculating a truck route. */
+        vehicleSpec?: IVehicleSpec;
     }
 
     /** Represents render options for a route. */
@@ -475,6 +481,97 @@ declare module Microsoft.Maps.Directions {
 
         /** The options that define the pushpin to use for all route waypoints by default. The first and last waypoints in the route will be overriden by firstWaypointPushpinOptions and lastWaypointPushpinOptions if set.  */
         waypointPushpinOptions?: IPushpinOptions;
+    }
+
+    /** Specifies the vehicle attributes to use when calculating a truck route. */
+    export interface IVehicleSpec {
+        /**
+        * The unit of measurement of width, height, length. Can be one of the following values:
+        * •	meter or m [default]
+        * •	foot or ft
+        */
+        dimensionUnit?: string;
+
+        /**
+        * The unit of measurement of weight. Can be one of the following values:
+        * •	kilogram or kg [default]
+        * •	pound or lb
+        */
+        weightUnit?: string;
+
+        /** The height of the vehicle in the specified dimension units. */
+        vehicleHeight?: number;
+
+        /** The width of the vehicle in the specified dimension units. */
+        vehicleWidth?: number;
+
+        /** The length of the vehicle in the specified dimension units. */
+        vehicleLength?: number;
+        
+        /** The weight of the vehicle in the specified weight units. */
+        vehicleWeight?: number;
+
+        /** The number of axles. */
+        vehicleAxles?: number;
+
+        /** The number of trailers. */
+        vehicleTrailers?: number;
+
+        /** Indicates if the truck is pulling a semi-trailer. Semi-trailer restrictions are mostly used in North America. */
+        vehicleSemi?: boolean;
+
+        /** The maximum gradient the vehicle can drive measured in degrees. */
+        vehicleMaxGradient?: boolean;
+
+        /** The minimum required radius for the vehicle to turn in the specified dimension units. */
+        vehicleMinTurnRadius?: number;
+
+        /** Indicates if the vehicle shall avoid crosswinds. */
+        vehicleAvoidCrossWind?: boolean;
+
+        /** Indicates if the route shall avoid the risk of grounding. */
+        vehicleAvoidGroundingRisk?: boolean;
+
+        /**
+        * A comma separated and case-sensitive list of one or more hazardous materials for which the vehicle is transporting. Possible values and their aliases are:
+        *
+        * •	Combustable or C
+        * •	Corrosive or Cr
+        * •	Explosive or E
+        * •	Flammable or F
+        * •	FlammableSolid or FS
+        * •	Gas or G
+        * •	GoodsHarmfulToWater or WH
+        * •	Organic or O
+        * •	Other
+        * •	Poison or P
+        * •	PoisonousInhalation or PI
+        * •	Radioactive or R
+        * •	None
+        * 
+        * Example: "WH,R,Poison"
+        */
+        vehicleHazardousMaterials?: string;
+
+        /** 
+        * A comma separated and case-sensitive list of one or more hazardous materials for which the vehicle has a permit. Possible values and their aliases are: 
+        * 
+        * •	AllAppropriateForLoad
+        * •	Combustible or C 
+        * •	Corrosive or Cr 
+        * •	Explosive or E 
+        * •	Flammable or F 
+        * •	FlammableSolid or FS 
+        * •	Gas or G 
+        * •	Organic or O 
+        * •	Poison or P 
+        * •	PoisonousInhalation or PI 
+        * •	Radioactive or R 
+        * •	None
+        * 
+        * Example: "C,Explosive,Corrosive" 
+        */
+        vehicleHazardousPermits?: string;
     }
 
     /////////////////////////////////////
