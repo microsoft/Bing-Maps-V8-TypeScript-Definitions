@@ -33,15 +33,6 @@ Using the [Bing Maps V8 TypeScript npm package](https://www.npmjs.com/package/bi
 ```
 npm install -g bingmaps
 ```
-
-**Use DefinitelyTyped**
-
-Use DefinitelyTyped version of these definitions via npm:
-
-```
-npm install --save @types/bingmaps
-```
-
 **Download definitions**
 
 Simply press the download button for this repository. Unzip the downloaded file, and copy the _**types**_ folder into your project. Note that you will need to do this process again from time to time if you want to have the most recent definitions. This should only be needed if you want to use newer features or if bugs in the definitions have been corrected.
