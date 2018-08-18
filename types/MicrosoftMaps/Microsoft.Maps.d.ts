@@ -573,7 +573,7 @@ declare module Microsoft.Maps {
         callback?: () => void;
 
         /** A function that is called if there is an error loading the module. */
-        errorCallback?: () => void;
+        errorCallback?: (errorMessage: string) => void;
 
         /** A Bing Maps key that is used with the module when the module is loaded without a map. */
         credentials?: string;
