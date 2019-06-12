@@ -389,7 +389,7 @@ declare module Microsoft.Maps {
 
 		/**
 		 * A boolean that, when set to true, allows the road labels to be hidden. Default: false
-		 * This property can only be set when using the Map constructor. This property can only be set when using the Map constructor.
+		 * This property can only be set when using the Map constructor.
 		 */
 		allowHidingLabelsOfRoad?: boolean;
 
