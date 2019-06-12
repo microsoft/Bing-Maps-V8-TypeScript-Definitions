@@ -1858,6 +1858,10 @@ declare module Microsoft.Maps {
      * The LocationRect class, also known as a bounding box, consists of a set of coordinates that are used to represent rectangular area on the map.
      */
     export class LocationRect {
+
+        /** The edges of the rectangle. In order of North, East, South, West. */
+        public bounds: [number, number, number, number]
+        
         /** The location that defines the center of the rectangle. */
         public center: Location;
 
