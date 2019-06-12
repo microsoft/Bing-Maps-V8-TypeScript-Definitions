@@ -374,6 +374,97 @@ declare module Microsoft.Maps {
 		 * It is recommended that the Bing Maps key be set as a URL parameter of the Bing Maps script reference. This option will continue to work.
 		 */
 		credentials?: string;
+
+		/**
+		 * A boolean that, when set to true, allows the road labels to be hidden. Default: false
+		 */
+		allowHidingLabelsOfRoad?: boolean;
+
+		/** The color to use for the map control background. The default color is #EAE8E1. */
+		backgroundColor?: string | Color;
+
+		/**
+		 * A boolean indicating whether to disable the bird’s eye map type. The default value is false. If this property is set to true, bird’s eye will be removed
+		 * from the map navigation control and the birdseye MapTypeId is disabled. Additionally, the auto map type will only display road or aerial.
+		 */
+		disableBirdseye?: boolean;
+
+		/**
+		 * A boolean indicating whether to disable streetside mode.If this property is set to true, streetside will be removed from
+		 * the navigation bar, and the automatic coverage overlay will be disabled when zoomed in at lower zoom levels. Default false
+		 */
+		disableStreetside?: boolean;
+
+		/**
+		 * A boolean indicating whether to disable the automatic streetside coverage layer that appears when zoomed in at lower zoom
+		 * levels. Default false
+		 **/
+		disableStreetsideAutoCoverage?: boolean;
+
+		/**
+		 * A boolean value indicating whether the Bing(TM) logo on the map is clickable. Default: true.
+		 */
+		enableClickableLogo?: boolean;
+
+		/**
+		 * A boolean value indicating if CORS (Cross-origin Resource Sharing) should be enabled for tiles. Useful if directly accessing the canvas to generate an image of the map. Default: false
+		 * Known Limitations: IE and Edge will not cache tiles when CORS is enabled. Chrome throws errors when this property is set enabled and custom tile layers don’t have CORS enabled on the server.
+		 */
+		enableCORS?: boolean;
+		
+		/**
+		 * A boolean value indicating whether to use the inertia animation effect during map navigation. Default: true
+		 */
+		enableInertia?: boolean;
+
+		/**
+		 * A boolean that indicates if the map should be rendered using lite mode. When set to true vector map labels are
+		 * disabled and map labels are rendered directly into the map tiles. This offers improved performance, but will result
+		 * in the labels being rendered behind data on the map and the labels will also not use collision dection with pushpins.
+		 * If this property is not set, the map set this value based on the target device and browser as vector labels perform
+		 * better in some scenrarios than others.
+		 */
+		liteMode?: boolean;
+
+		/**
+		 * A boolean that, when set to false, allows the copyright to be hidden. Default: false
+		 */
+		showCopyright?: boolean;
+
+		/**
+		 * A boolean value indicating whether to show the map navigation control. Default: true
+		 */
+		showDashboard?: boolean;
+
+		/**
+		 * A boolean value indicating whether to show a button that centers the map over the user's location in the map navigation control. Default: true
+		 */
+		showLocateMeButton?: boolean;
+
+		/**
+		 * A boolean value indicating whether or not to show the map Bing logo. The default value is true.
+		 */
+		showLogo?: boolean;
+
+		/**
+		 * A boolean value indicating whether to show the map type selector in the map navigation control. Default: true
+		 */
+		showMapTypeSelector?: boolean;
+
+		/**
+		 * A boolean value indicating whether to show the scale bar. Default: true
+		 */
+		showScalebar?: boolean;
+
+		/**
+		 * A boolean value indicating whether to show a link to the End User Terms of Use, which appears to the right of the copyrights, or not. Default: true
+		 */
+		showTermsLink?: boolean;
+
+		/**
+		 * A boolean value indicating whether to show the zoom buttons in the map navigation control. Default: true
+		 */
+		showZoomButtons?: boolean;
 	}
 
 	/**
@@ -381,27 +472,12 @@ declare module Microsoft.Maps {
 	 * the setOptions function on the map.
 	 */
 	export interface IMapOptions {
-		/**
-		 * A boolean that, when set to true, allows the road labels to be hidden. Default: false
-		 * This property can only be set when using the Map constructor.
-		 */
-		allowHidingLabelsOfRoad?: boolean;
 
 		/** A boolean indicating if the infobox is allowed to overflow outside the bounds of the map. Default: false. */
 		allowInfoboxOverflow?: boolean;
 
-		/** The color to use for the map control background. The default color is #EAE8E1. This property can only be set when using the Map constructor. */
-		backgroundColor?: string | Color;
-
 		/** Custom map styles used to modify the look and feel of the base map. */
 		customMapStyle?: ICustomMapStyle;
-
-		/**
-		 * A boolean indicating whether to disable the bird’s eye map type. The default value is false. If this property is set to true, bird’s eye will be removed
-		 * from the map navigation control and the birdseye MapTypeId is disabled. Additionally, the auto map type will only display road or aerial.
-		 * This property can only be set when using the Map constructor.
-		 */
-		disableBirdseye?: boolean;
 
 		/** A boolean value indicating whether to disable the user’s ability to control the using the keyboard. Default: false */
 		disableKeyboardInput?: boolean;
@@ -419,35 +495,8 @@ declare module Microsoft.Maps {
 		 */
 		disableScrollWheelZoom?: boolean;
 
-		/**
-		 * A boolean indicating whether to disable streetside mode.If this property is set to true, streetside will be removed from
-		 * the navigation bar, and the automatic coverage overlay will be disabled when zoomed in at lower zoom levels. Default false
-		 * This property can only be set when using the Map constructor.
-		 */
-		disableStreetside?: boolean;
-
-		/**
-		 * A boolean indicating whether to disable the automatic streetside coverage layer that appears when zoomed in at lower zoom
-		 * levels. Default false
-		 * This property can only be set when using the Map constructor.
-		 **/
-		disableStreetsideAutoCoverage?: boolean;
-
 		/** A boolean value indicating whether to disable the user's ability to zoom in or out. Default: false */
 		disableZooming?: boolean;
-
-		/**
-		 * A boolean value indicating whether the Bing(TM) logo on the map is clickable. Default: true.
-		 * This property can only be set when using the Map constructor.
-		 */
-		enableClickableLogo?: boolean;
-
-		/**
-		 * A boolean value indicating if CORS (Cross-origin Resource Sharing) should be enabled for tiles. Useful if directly accessing the canvas to generate an image of the map. Default: false
-		 * Known Limitations: IE and Edge will not cache tiles when CORS is enabled. Chrome throws errors when this property is set enabled and custom tile layers don’t have CORS enabled on the server.
-		 * This property can only be set when using the Map constructor.
-		 */
-		enableCORS?: boolean;
 
 		/**
 		 * Enables the map to use map tiles suitable for a higher DPI display, if the display supports it.
@@ -455,22 +504,6 @@ declare module Microsoft.Maps {
 		 * at a higher zoom level and scale the image to increase the DPI. Default: false.
 		 */
 		enableHighDpi?: boolean;
-
-		/**
-		 * A boolean value indicating whether to use the inertia animation effect during map navigation. Default: true
-		 * This property can only be set when using the Map constructor.
-		 */
-		enableInertia?: boolean;
-
-		/**
-		 * A boolean that indicates if the map should be rendered using lite mode. When set to true vector map labels are
-		 * disabled and map labels are rendered directly into the map tiles. This offers improved performance, but will result
-		 * in the labels being rendered behind data on the map and the labels will also not use collision dection with pushpins.
-		 * If this property is not set, the map set this value based on the target device and browser as vector labels perform
-		 * better in some scenrarios than others.
-		 * This property can only be set when using the Map constructor.
-		 */
-		liteMode?: boolean;
 
 		/** A bounding area that restricts the map view. */
 		maxBounds?: LocationRect;
@@ -494,55 +527,8 @@ declare module Microsoft.Maps {
 		 */
 		showBreadcrumb?: boolean;
 
-		/**
-		 * A boolean that, when set to false, allows the copyright to be hidden. Default: false
-		 * This property can only be set when using the Map constructor.
-		 */
-		showCopyright?: boolean;
-
-		/**
-		 * A boolean value indicating whether to show the map navigation control. Default: true This property can only be set when using the Map constructor.
-		 */
-		showDashboard?: boolean;
-
-		/**
-		 * A boolean value indicating whether to show a button that centers the map over the user's location in the map navigation control. Default: true
-		 * This property can only be set when using the Map constructor.
-		 */
-		showLocateMeButton?: boolean;
-
-		/**
-		 * A boolean value indicating whether or not to show the map Bing logo. The default value is true.
-		 * This property can only be set when using the Map constructor.
-		 */
-		showLogo?: boolean;
-
-		/**
-		 * A boolean value indicating whether to show the map type selector in the map navigation control. Default: true
-		 * This property can only be set when using the Map constructor.
-		 */
-		showMapTypeSelector?: boolean;
-
-		/**
-		 * A boolean value indicating whether to show the scale bar. Default: true
-		 * This property can only be set when using the Map constructor.
-		 */
-		showScalebar?: boolean;
-
 		/** When using the minified navigation bar, a traffic button is displayed. Setting this option to false will hide this button. */
 		showTrafficButton?: boolean;
-
-		/**
-		 * A boolean value indicating whether to show a link to the End User Terms of Use, which appears to the right of the copyrights, or not. Default: true
-		 * This property can only be set when using the Map constructor.
-		 */
-		showTermsLink?: boolean;
-
-		/**
-		 * A boolean value indicating whether to show the zoom buttons in the map navigation control. Default: true
-		 * This property can only be set when using the Map constructor.
-		 */
-		showZoomButtons?: boolean;
 
 		/** A set of properties for the streetside mode of the map. */
 		streetsideOptions?: IStreetsideOptions;
