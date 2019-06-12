@@ -382,6 +382,12 @@ declare module Microsoft.Maps {
 	 */
 	export interface IMapOptions {
 		/**
+		 * A boolean that, when set to false, allows the copyright to be hidden. Default: false
+		 * This property can only be set when using the Map constructor.
+		 */
+		showCopyright?: boolean;
+
+		/**
 		 * A boolean that, when set to true, allows the road labels to be hidden. Default: false
 		 * This property can only be set when using the Map constructor. This property can only be set when using the Map constructor.
 		 */
