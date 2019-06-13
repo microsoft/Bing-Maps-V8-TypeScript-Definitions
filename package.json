@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
 	"name": "@picode/bingmaps",
 	"version": "2.0.4",
 	"description": "These are the official TypeScript definitions for the Bing Maps V8 SDK. These can be used to provide intellisense and rich error detection to your IDE.",
@@ -29,4 +30,36 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	}
+=======
+  "name": "@picode/bingmaps",
+  "version": "2.0.3",
+  "description": "These are the official TypeScript definitions for the Bing Maps V8 SDK. These can be used to provide intellisense and rich error detection to your IDE.",
+  "typings": "types/MicrosoftMaps/Microsoft.Maps.All.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Microsoft/Bing-Maps-V8-TypeScript-Definitions.git"
+  },
+  "keywords": [
+    "Microsoft",
+    "Bing Maps",
+    "Maps",
+    "GIS",
+    "TypeScript",
+    "V8",
+    "Web",
+    "Map",
+    "Geospatial",
+    "JavaScript"
+  ],
+  "author": "Bing Maps <bingmapsoss@microsoft.com> (https://www.microsoft.com/maps/v8control.aspx)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Microsoft/Bing-Maps-V8-TypeScript-Definitions/issues"
+  },
+  "homepage": "https://github.com/Microsoft/Bing-Maps-V8-TypeScript-Definitions#readme",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+>>>>>>> parent of 3e4d3c9... updated npm information
 }
