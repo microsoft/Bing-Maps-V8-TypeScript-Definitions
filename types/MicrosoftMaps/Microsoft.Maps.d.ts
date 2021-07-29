@@ -256,6 +256,8 @@ declare module Microsoft.Maps {
 
     /** An object the identifies an event that has been attached to an object. */
     export interface IHandlerId {
+        /** Disposes the event */
+        dispose();
     }
 
     /** Base layer interface. */
