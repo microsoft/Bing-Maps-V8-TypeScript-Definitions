@@ -302,10 +302,10 @@ declare module Microsoft.Maps {
         /** The location on the map where the infobox’s anchor is attached. */
         location?: Location;
 
-        /** The maximium size that the infobox height can expand to based on it’s content. Default: 126 **/
+        /** The maximium size that the infobox height can expand to based on its content. Default: 126 **/
         maxHeight?: number;
 
-        /** The maximium size that the infobox width can expand to based on it’s content. Default: 256 **/
+        /** The maximium size that the infobox width can expand to based on its content. Default: 256 **/
         maxWidth?: number;
 
         /**
