@@ -283,6 +283,9 @@ declare module Microsoft.Maps {
         */
         actions?: IInfoboxActions[];
 
+	/** Whether the infobox is automatically moved when it is shown, if required to ensure that no part of it overflows the bounds of the map. Default: false */
+        autoAlignment?: boolean;
+
         /** The string displayed inside the infobox. */
         description?: string;
 
