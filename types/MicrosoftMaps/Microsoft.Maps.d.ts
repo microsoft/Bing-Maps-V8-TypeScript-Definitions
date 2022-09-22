@@ -97,7 +97,13 @@ declare module Microsoft.Maps {
         * A minified navigation bar that has a button to toggle between road and aerial maps, zoom buttons, and a button to turn
         * traffic information on and off. Recommended for small maps or screen such as a mobile device.
         */
-        minified
+        minified,
+	    
+	/**
+	* A navigation bar that uses aligned square icons. It includes a drop down for map type, a locate me button, and zoom buttons. 
+	* It is also the only mode that supports the floor switcher for the Venue Maps Module.
+	*/
+    	square
     }
 
     /** The NavigationBarOrientation enumeration is used to define how the navigation bar controls are laid out. */
