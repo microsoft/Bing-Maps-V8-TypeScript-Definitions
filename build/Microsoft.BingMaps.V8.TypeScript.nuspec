@@ -24,7 +24,7 @@
         <file src="..\types\MicrosoftMaps\Modules\DataBinning.d.ts" target="content\types\MicrosoftMaps\Modules\DataBinning.d.ts" />
         <file src="..\types\MicrosoftMaps\Modules\Directions.d.ts" target="content\types\MicrosoftMaps\Modules\Directions.d.ts" />
         <file src="..\types\MicrosoftMaps\Modules\DrawingTools.d.ts" target="content\types\MicrosoftMaps\Modules\DrawingTools.d.ts" />
-        <file src="..\types\MicrosoftMaps\Modules\GeoJSON.d.ts" target="content\types\MicrosoftMaps\Modules\GeoJson.d.ts" />
+        <file src="..\types\MicrosoftMaps\Modules\GeoJSON.d.ts" target="content\types\MicrosoftMaps\Modules\GeoJSON.d.ts" />
         <file src="..\types\MicrosoftMaps\Modules\GeoXml.d.ts" target="content\types\MicrosoftMaps\Modules\GeoXml.d.ts" />
         <file src="..\types\MicrosoftMaps\Modules\HeatMapLayer.d.ts" target="content\types\MicrosoftMaps\Modules\HeatMapLayer.d.ts" />
         <file src="..\types\MicrosoftMaps\Modules\Search.d.ts" target="content\types\MicrosoftMaps\Modules\Search.d.ts" />
